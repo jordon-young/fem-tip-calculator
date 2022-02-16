@@ -1,0 +1,6 @@
+#tipCalculator > :first-child {
+  background-color: red;
+}
+#tipCalculator > :last-child {
+  background-color: blue;
+}
