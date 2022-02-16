@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <!-- <script defer type="text/javascript" src="./functions.js"></script> -->
+    <!-- <script defer type="text/javascript" src="./functions.js"></script> -->
 
-  <title>Jordon Young | Tip Calculator</title>
-</head>
+    <title>Jordon Young | Tip Calculator</title>
+  </head>
 
-<body>
+  <body>
 
-  <main>
-    <form id="tipCalculator">
-      <div id="inputCard">
-        <div>
-          <label for="amountBilled">Bill</label>
-          <input id="amountBilled" type="number" step=".01" min="0" max="999999" placeholder="0">
+    <main>
+      <form id="tipCalculator">
+        <div id="inputCard">
+          <div>
+            <label for="billedAmount">Bill</label>
+            <input id="billedAmount" type="number" step="0.01" min="0" max="999999" placeholder="0.00">
+          </div>
+
+          <fieldset id="tipPercent">
+            <legend>Select Tip %</legend>
+            <div>
+              <input id="tipFive" type="radio" name="tipPercent" value=".05">
+              <label for="tipFive">5%</label>
+            </div>
+            <div>
+              <input id="tipTen" type="radio" name="tipPercent" value=".10">
+              <label for="tipTen">10%</label>
+            </div>
+            <div>
+              <input id="tipFifteen" type="radio" name="tipPercent" value=".15">
+              <label for="tipFifteen">15%</label>
+            </div>
+            <div>
+              <input id="tipTwenty" type="radio" name="tipPercent" value=".20">
+              <label for="tipTwenty">20%</label>
+            </div>
+            <div>
+              <input id="tipTwentyFive" type="radio" name="tipPercent" value=".25">
+              <label for="tipTwentyFive">25%</label>
+            </div>
+            <div>
+              <input id="tipCustom" type="radio" name="tipPercent" value="custom">
+              <label for="tipCustom">Custom</label>
+            </div>
+            <input id="customTip" type="number" min="0" max="100" placeholder="0" hidden>
+          </fieldset>
+
+          <div>
+            <label for="numberOfPeople">Number of People</label>
+            <input id="numberOfPeople" type="number" min="1" placeholder="1">
+          </div>
         </div>
 
-        <fieldset id="tipPercent">
-          <legend>Select Tip %</legend>
+        <div id="resultCard">
           <div>
-            <input id="tipFive" type="radio" name="tipPercent" value=".05">
-            <label for="tipFive">5%</label>
+            <label for="tipAmount">
+              Tip Amount<br />
+              <span>/ person</span>
+            </label>
+            <output id="tipAmount" name="tipAmount">$0.00</output>
           </div>
-          <div>
-            <input id="tipTen" type="radio" name="tipPercent" value=".10">
-            <label for="tipTen">10%</label>
-          </div>
-          <div>
-            <input id="tipFifteen" type="radio" name="tipPercent" value=".15">
-            <label for="tipFifteen">15%</label>
-          </div>
-          <div>
-            <input id="tipTwenty" type="radio" name="tipPercent" value=".20">
-            <label for="tipTwenty">20%</label>
-          </div>
-          <div>
-            <input id="tipTwentyFive" type="radio" name="tipPercent" value=".25">
-            <label for="tipTwentyFive">25%</label>
-          </div>
-          <div>
-            <input id="tipCustom" type="radio" name="tipPercent" value="custom">
-            <label for="tipCustom">Custom</label>
-          </div>
-          <input id="customTip" type="number" min="0" max="100" placeholder="0" hidden>
-        </fieldset>
 
-        <div>
-          <label for="numberOfPeople">Number of People</label>
-          <input id="numberOfPeople" type="number" min="1" placeholder="1">
+          <div>
+            <label for="totalAmount">
+              Total<br />
+              <span>/ person</span>
+            </label>
+            <output id="totalAmount" name="totalAmount">$0.00</output>
+          </div>
+
+          <input type="reset" value="Reset">
         </div>
-      </div>
+      </form>
+    </main>
 
-      <div id="resultCard">
-        <div>
-          <label for="tipAmount">
-            Tip Amount<br />
-            <span>/ person</span>
-          </label>
-          <output id="tipAmount" name="tipAmount" for="amountBilled tipPercent numberOfPeople">$0.00</output>
-        </div>
-
-        <div>
-          <label for="totalAmount">
-            Total<br />
-            <span>/ person</span>
-          </label>
-          <output id="totalAmount" name="totalAmount">$0.00</output>
-        </div>
-
-        <input type="reset" value="Reset">
-      </div>
-    </form>
-  </main>
-
-  <footer class="attribution">
-    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a></p>
-    <p>Coded by <a href="https://jordonyoung.com">Jordon Young</a></p>
-  </footer>
-</body>
+    <footer>
+      <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a></p>
+      <p>Coded by <a href="https://jordonyoung.com">Jordon Young</a></p>
+    </footer>
+  </body>
 
 </html>
