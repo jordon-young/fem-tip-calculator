@@ -121,14 +121,24 @@ export function handleFormChange() {
 
   setTipAmount(formatCurrency(tipAmount));
   setTotalAmount(formatCurrency(totalAmount));
+  enableResetButton();
 }
 
 /*
     Setup & Resets
 */
 
+function enableResetButton(){
+  document.querySelector('input[type="reset"').removeAttribute('disabled');
+}
+
+function disableResetButton(){
+  document.querySelector('input[type="reset"').setAttribute('disabled', 'true');
+}
+
 export function resetForm() {
   hideCustomTipField();
+  disableResetButton();
 
   document.querySelectorAll('output').forEach(el => {
     el.innerText = '$0.00';

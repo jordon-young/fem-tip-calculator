@@ -1,6 +1,80 @@
-#tipCalculator > :first-child {
-  background-color: red;
+/* 
+    Typography 
+*/
+/*
+    Color
+*/
+:root {
+  font-size: 62.5%;
 }
-#tipCalculator > :last-child {
-  background-color: blue;
+
+body {
+  font-family: "Space Mono", monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.6rem;
+  background-color: #C5E4E7;
 }
+
+input[type=reset] {
+  width: 100%;
+  padding: 1.2rem 0 0.9rem 0;
+  border-radius: 0.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  letter-spacing: 0.06em;
+  color: #00494D;
+  background-color: #00E6C7;
+}
+input[type=reset]:disabled {
+  color: #00494D;
+  background-color: #0D686D;
+}
+input[type=reset]:enabled:hover {
+  background-color: #9FE8DF;
+}
+
+label, legend {
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #5E7A7D;
+}
+label span, legend span {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  letter-spacing: -0.05em;
+  color: white;
+}
+
+output {
+  font-size: 3.2rem;
+  line-height: 4.7rem;
+  letter-spacing: -0.02em;
+  text-align: right;
+  color: #00E6C7;
+}
+output.desktop {
+  font-size: 4.8rem;
+  line-height: 7.1rem;
+}
+
+input[type=number] {
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  text-align: right;
+}
+input[type=number]:valid {
+  color: #00494D;
+}
+
+form#tipCalculator {
+  background-color: white;
+}
+form#tipCalculator > :last-child {
+  background-color: #00494D;
+}
+
+/*# sourceMappingURL=styles.css.map */
