@@ -1,0 +1,17 @@
+@use '../theme';
+
+input[type=number] {
+	@extend .bold-24;
+	border-radius: 0.4rem;
+	border: none;
+	text-align: right;
+
+	&:valid {
+		color: theme.$primary-dark;
+	}
+}
+
+fieldset label {
+	@extend .bold-24;
+	text-align: center;
+}

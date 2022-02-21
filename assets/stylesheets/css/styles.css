@@ -1,19 +1,172 @@
-/* 
-    Typography 
-*/
 /*
-    Color
+	Resets
 */
-:root {
-  font-size: 62.5%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* 
+    Typography 
+*/
+.font-family, .font-defaults, body {
   font-family: "Space Mono", monospace;
-  font-style: normal;
-  font-weight: normal;
+}
+
+.size-12, .bold-12 {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.06em;
+}
+
+.size-14, label span, .bold-14 {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  letter-spacing: -0.05em;
+}
+
+.size-16, .font-defaults, body, .bold-16 {
   font-size: 1.6rem;
-  background-color: #C5E4E7;
+  line-height: 2.4rem;
+}
+
+.size-18, .bold-18, input[type=reset] {
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  letter-spacing: 0.06em;
+}
+
+.size-24, .bold-24, label,
+legend, input[type=number], fieldset label, .logo {
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+}
+
+.size-32, output, .bold-32 {
+  font-size: 3.2rem;
+  line-height: 4.7rem;
+  letter-spacing: -0.02em;
+}
+
+.style-normal, .font-defaults, body {
+  font-style: normal;
+}
+
+.weight-regular, .font-defaults, body {
+  font-weight: 400;
+}
+
+.weight-bold, .bold-12, .bold-14, .bold-16, .bold-18, input[type=reset], .bold-24, label,
+legend, input[type=number], fieldset label, .logo, .bold-32 {
+  font-weight: 700;
+}
+
+.logo {
+  letter-spacing: 0.42em;
+}
+
+/*
+    Color
+*/
+input[type=number] {
+  border-radius: 0.4rem;
+  border: none;
+  text-align: right;
+}
+input[type=number]:valid {
+  color: #00494D;
+}
+
+fieldset label {
+  text-align: center;
+}
+
+label,
+legend {
+  color: #5E7A7D;
+}
+
+label span {
+  color: white;
+}
+
+output {
+  text-align: right;
+  color: #00E6C7;
+}
+output.desktop {
+  font-size: 4.8rem;
+  line-height: 7.1rem;
 }
 
 input[type=reset] {
@@ -21,10 +174,6 @@ input[type=reset] {
   padding: 1.2rem 0 0.9rem 0;
   border-radius: 0.4rem;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.8rem;
-  line-height: 2.7rem;
-  letter-spacing: 0.06em;
   color: #00494D;
   background-color: #00E6C7;
 }
@@ -36,45 +185,19 @@ input[type=reset]:enabled:hover {
   background-color: #9FE8DF;
 }
 
-label, legend {
-  font-weight: bold;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-  color: #5E7A7D;
-}
-label span, legend span {
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-  letter-spacing: -0.05em;
-  color: white;
-}
-
-output {
-  font-size: 3.2rem;
-  line-height: 4.7rem;
-  letter-spacing: -0.02em;
-  text-align: right;
-  color: #00E6C7;
-}
-output.desktop {
-  font-size: 4.8rem;
-  line-height: 7.1rem;
-}
-
-input[type=number] {
-  font-size: 2.4rem;
-  line-height: 3.6rem;
-  text-align: right;
-}
-input[type=number]:valid {
-  color: #00494D;
-}
-
 form#tipCalculator {
   background-color: white;
 }
 form#tipCalculator > :last-child {
   background-color: #00494D;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #C5E4E7;
 }
 
 /*# sourceMappingURL=styles.css.map */

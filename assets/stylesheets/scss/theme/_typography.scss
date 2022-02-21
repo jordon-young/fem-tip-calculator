@@ -1,0 +1,86 @@
+/* 
+    Typography 
+*/
+
+.font-family {
+	font-family: 'Space Mono', monospace;
+}
+
+.size-12 {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	letter-spacing: 0.06em;
+}
+
+.size-14 {
+	font-size: 1.4rem;
+	line-height: 2.1rem;
+	letter-spacing: -0.05em;
+}
+
+.size-16 {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+
+.size-18 {
+	font-size: 1.8rem;
+	line-height: 2.7rem;
+	letter-spacing: 0.06em;
+}
+
+.size-24 {
+	font-size: 2.4rem;
+	line-height: 3.6rem;
+}
+
+.size-32 {
+	font-size: 3.2rem;
+	line-height: 4.7rem;
+	letter-spacing: -0.02em;
+}
+
+.style-normal {
+	font-style: normal;
+}
+
+.bold-12 {
+	@extend .size-12, .weight-bold;
+}
+
+.bold-14 {
+	@extend .size-14, .weight-bold;
+}
+
+.bold-16 {
+	@extend .size-16, .weight-bold;
+}
+
+.bold-18 {
+	@extend .size-18, .weight-bold;
+}
+
+.bold-24 {
+	@extend .size-24, .weight-bold;
+}
+
+.bold-32 {
+	@extend .size-32, .weight-bold;
+}
+
+.weight-regular {
+	font-weight: 400;
+}
+
+.weight-bold {
+	font-weight: 700;
+}
+
+.font-defaults {
+	@extend .font-family, .style-normal, .size-16, .weight-regular ;
+}
+
+.logo {
+	@extend .bold-24;
+	letter-spacing: 0.42em;
+}

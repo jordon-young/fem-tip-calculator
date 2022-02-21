@@ -5,7 +5,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 ### Development Scripts
 
 ```bash
-sass --watch ./assets/stylesheets/scss:./assets/stylesheets/css
+sass -w ./assets/stylesheets/scss:./assets/stylesheets/css
 ```
 
 ## Table of contents

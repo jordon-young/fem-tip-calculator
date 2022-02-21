@@ -1,0 +1,44 @@
+@use '../theme';
+
+label,
+legend {
+	@extend .bold-24;
+	color: theme.$input__label;
+}
+
+label span {
+	@extend .size-14;
+	color: theme.$card__background;
+}
+
+output {
+	@extend .size-32;
+    text-align: right;
+	color: theme.$primary;
+
+	&.desktop {
+		font-size: 4.8rem;
+		line-height: 7.1rem;
+	}
+}
+
+input[type=reset] {
+	width: 100%;
+	padding: 1.2rem 0 0.9rem 0;
+	border-radius: 0.4rem;
+
+	text-transform: uppercase;
+    @extend .bold-18;
+
+	color: theme.$primary-dark;
+	background-color: theme.$primary;
+
+	&:disabled {
+		color: theme.$button-disabled-text;
+		background-color: theme.$button-disabled;
+	}
+
+	&:enabled:hover {
+		background-color: theme.$primary-light;
+	}
+}

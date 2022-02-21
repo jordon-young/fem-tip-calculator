@@ -1,0 +1,11 @@
+@forward'input-card';
+@forward 'display-card';
+@use '../theme';
+
+form#tipCalculator {
+	background-color: theme.$card__background;
+
+	> :last-child {
+		background-color: theme.$primary-dark;
+	}
+}
