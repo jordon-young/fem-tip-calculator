@@ -1,20 +1,20 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 
-    -webkit-appearance: none;
-    appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 fieldset {
-    border: none;
+  border: none;
 }
 
-input[type='radio'] {
-    float: left;
+input[type="radio"] {
+  /* float: left; */
 }
 
-input[type='reset'] {
-    border: none;
+input[type="reset"] {
+  border: none;
 }

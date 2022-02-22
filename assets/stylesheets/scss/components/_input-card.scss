@@ -1,17 +1,50 @@
-@use '../theme';
+@use "../theme";
 
-input[type=number] {
-	@extend .bold-24;
-	border-radius: 0.4rem;
-	border: none;
-	text-align: right;
+input[type="number"] {
+  @extend .bold-24;
 
-	&:valid {
-		color: theme.$primary-dark;
-	}
+  height: 4.8rem;
+  width: 100%;
+
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  text-align: right;
+
+  padding: 1.6rem;
+
+  background-color: theme.$input__background;
+  color: theme.$primary-dark;
+  caret-color: theme.$input__active;
+
+  &::placeholder {
+    color: theme.$input__placeholder;
+  }
+
+  &:focus {
+    border: 0.2rem solid theme.$input__active;
+  }
+
+  &:invalid {
+    border: 0.2rem solid theme.$input__error;
+    caret-color: theme.$input__error;
+    color: theme.$input__error--dark;
+  }
 }
 
-fieldset label {
-	@extend .bold-24;
-	text-align: center;
+fieldset {
+  label {
+    @extend .bold-24;
+    text-align: center;
+  }
+
+  input[type="radio"] {
+    width: 299px;
+    height: 4.8rem;
+
+    background-color: theme.$primary-dark;
+    border-radius: 0.4rem;
+    text-align: center;
+    color: white;
+  }
 }
