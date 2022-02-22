@@ -1,8 +1,11 @@
-@forward'input-card';
-@forward 'display-card';
+@use 'input-card';
+@use 'display-card';
 @use '../theme';
 
-form#tipCalculator {
+#tip-calculator {
+	width: 37.5rem; // Temporary
+
+
 	background-color: theme.$card__background;
 
 	> :last-child {

@@ -6,6 +6,18 @@
 	font-family: 'Space Mono', monospace;
 }
 
+.style-normal {
+	font-style: normal;
+}
+
+.weight-regular {
+	font-weight: 400;
+}
+
+.weight-bold {
+	font-weight: 700;
+}
+
 .size-12 {
 	font-size: 1.2rem;
 	line-height: 1.8rem;
@@ -36,12 +48,8 @@
 
 .size-32 {
 	font-size: 3.2rem;
-	line-height: 4.7rem;
+	line-height: 4.8rem;
 	letter-spacing: -0.02em;
-}
-
-.style-normal {
-	font-style: normal;
 }
 
 .bold-12 {
@@ -66,14 +74,6 @@
 
 .bold-32 {
 	@extend .size-32, .weight-bold;
-}
-
-.weight-regular {
-	font-weight: 400;
-}
-
-.weight-bold {
-	font-weight: 700;
 }
 
 .font-defaults {

@@ -7,15 +7,15 @@
 */
 
 function showCustomTipField() {
-  document.getElementById('customTip').removeAttribute('hidden');
+  document.getElementById('custom-tip').removeAttribute('hidden');
 }
 
 function hideCustomTipField() {
-  document.getElementById('customTip').setAttribute('hidden', 'true');
+  document.getElementById('custom-tip').setAttribute('hidden', 'true');
 }
 
 export function setupCustomTipFieldListeners() {
-  document.getElementById('tipCustom').addEventListener('change', () => showCustomTipField());
+  document.getElementById('tip-custom').addEventListener('change', () => showCustomTipField());
 
   document.querySelectorAll('input[type=radio]:not(#tipCustom)').forEach(el => {
     el.addEventListener('change', () => hideCustomTipField());
@@ -36,7 +36,7 @@ function formatCurrency(amount) {
 
 // Format Input on Focus Out
 export function billedAmountOnFocusOut() {
-  const el = document.querySelector('#billedAmount');
+  const el = document.querySelector('#billed-amount');
   if (el.value > 0) {
     el.value = formatCurrency(el.value);
   }
@@ -47,11 +47,11 @@ function calculateTip(data) {
 }
 
 function setTipAmount(amount) {
-  document.getElementById('tipAmount').innerText = '$' + formatCurrency(amount);
+  document.getElementById('tip-amount').innerText = '$' + formatCurrency(amount);
 }
 
 function setTotalAmount(amount) {
-  document.getElementById('totalAmount').innerText = '$' + formatCurrency(amount);
+  document.getElementById('total-amount').innerText = '$' + formatCurrency(amount);
 }
 
 /* 
@@ -63,21 +63,21 @@ function setTotalAmount(amount) {
 */
 
 function getFormData() {
-  const form = document.getElementById('tipCalculator');
+  const form = document.getElementById('tip-calculator');
 
   let billedAmount;
   try {
-    let inputBilledAmount = form.querySelector('#billedAmount');
+    let inputBilledAmount = form.querySelector('#billed-amount');
     billedAmount = +inputBilledAmount.value;
   } catch (err) {
-    console.error('#billedAmount could not be found in the form...');
+    console.error('#billed-amount could not be found in the form...');
   }
 
   let tipPercent;
   try {
-    let inputTipPercentage = form.querySelector('input[name="tipPercent"]:checked');
+    let inputTipPercentage = form.querySelector('input[name="tip-percent"]:checked');
     if (inputTipPercentage.value == 'custom') {
-      tipPercent = form.querySelector('#customTip').value / 100;
+      tipPercent = form.querySelector('#custom-tip').value / 100;
     } else {
       tipPercent = +inputTipPercentage.value;
     }
@@ -86,12 +86,12 @@ function getFormData() {
   }
   let numberOfPeople;
   try {
-    numberOfPeople = +form.querySelector('#numberOfPeople').value;
+    numberOfPeople = +form.querySelector('#number-of-people').value;
     if (numberOfPeople < 1) {
       numberOfPeople = 1;
     }
   } catch (err) {
-    console.error('#numberOfPeople could not be found in form...');
+    console.error('#number-of-people could not be found in form...');
   }
 
   return { billedAmount, tipPercent, numberOfPeople };
@@ -129,11 +129,11 @@ export function handleFormChange() {
 */
 
 function enableResetButton(){
-  document.querySelector('input[type="reset"').removeAttribute('disabled');
+  document.querySelector('input[type="reset"]').removeAttribute('disabled');
 }
 
 function disableResetButton(){
-  document.querySelector('input[type="reset"').setAttribute('disabled', 'true');
+  document.querySelector('input[type="reset"]').setAttribute('disabled', 'true');
 }
 
 export function resetForm() {

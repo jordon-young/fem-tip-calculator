@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/stylesheets/css/reset.css">
     <link rel="stylesheet" href="./assets/stylesheets/css/styles.css">
 
-    <!-- Scripts -->
+    <!-- Scrip-ts -->
     <script type="module" src="./assets/scripts/setup.js"></script>
 
     <title>Jordon Young | Tip Calculator</title>
@@ -27,66 +27,68 @@
   <body>
 
     <main>
-      <form id="tipCalculator">
-        <div id="inputCard">
+      <form id="tip-calculator">
+        <div id="input-card">
           <div>
-            <label for="billedAmount">Bill</label>
-            <input id="billedAmount" type="number" step="0.01" min="0" max="999999" placeholder="0.00">
+            <label for="billed-amount">Bill</label>
+            <input id="billed-amount" type="number" step="0.01" min="0" max="999999" placeholder="0.00">
           </div>
 
-          <fieldset id="tipPercent">
+          <fieldset id="tip-percent">
             <legend>Select Tip %</legend>
             <div>
-              <input id="tipFive" type="radio" name="tipPercent" value=".05">
-              <label for="tipFive">5%</label>
+              <div>
+                <input id="tip-five" type="radio" name="tip-percent" value=".05">
+                <label for="tip-five">5%</label>
+              </div>
+              <div>
+                <input id="tip-ten" type="radio" name="tip-percent" value=".10">
+                <label for="tip-ten">10%</label>
+              </div>
+              <div>
+                <input id="tip-fifteen" type="radio" name="tip-percent" value=".15">
+                <label for="tip-fifteen">15%</label>
+              </div>
+              <div>
+                <input id="tip-twenty" type="radio" name="tip-percent" value=".20">
+                <label for="tip-twenty">20%</label>
+              </div>
+              <div>
+                <input id="tip-twenty-five" type="radio" name="tip-percent" value=".25">
+                <label for="tip-twenty-five">25%</label>
+              </div>
+              <div>
+                <input id="tip-custom" type="radio" name="tip-percent" value="custom">
+                <label for="tip-custom">Custom</label>
+              </div>
+              <input id="custom-tip" type="number" min="0" max="100" placeholder="0" hidden>
             </div>
-            <div>
-              <input id="tipTen" type="radio" name="tipPercent" value=".10">
-              <label for="tipTen">10%</label>
-            </div>
-            <div>
-              <input id="tipFifteen" type="radio" name="tipPercent" value=".15">
-              <label for="tipFifteen">15%</label>
-            </div>
-            <div>
-              <input id="tipTwenty" type="radio" name="tipPercent" value=".20">
-              <label for="tipTwenty">20%</label>
-            </div>
-            <div>
-              <input id="tipTwentyFive" type="radio" name="tipPercent" value=".25">
-              <label for="tipTwentyFive">25%</label>
-            </div>
-            <div>
-              <input id="tipCustom" type="radio" name="tipPercent" value="custom">
-              <label for="tipCustom">Custom</label>
-            </div>
-            <input id="customTip" type="number" min="0" max="100" placeholder="0" hidden>
           </fieldset>
 
           <div>
-            <label for="numberOfPeople">Number of People</label>
-            <input id="numberOfPeople" type="number" min="1" placeholder="1">
+            <label for="number-of-people">Number of People</label>
+            <input id="number-of-people" type="number" min="1" placeholder="1">
           </div>
         </div>
 
-        <div id="resultCard">
+        <div id="display-card">
           <div>
-            <label for="tipAmount">
+            <label for="tip-amount">
               Tip Amount<br />
               <span>/ person</span>
             </label>
-            <output id="tipAmount" name="tipAmount">$0.00</output>
+            <output id="tip-amount" name="tip-amount">$0.00</output>
           </div>
 
           <div>
-            <label for="totalAmount">
+            <label for="total-amount">
               Total<br />
               <span>/ person</span>
             </label>
-            <output id="totalAmount" name="totalAmount">$0.00</output>
+            <output id="total-amount" name="total-amount">$0.00</output>
           </div>
 
-          <input type="reset" value="Reset" disabled>
+          <input type="reset" value="reset" disabled>
         </div>
       </form>
     </main>

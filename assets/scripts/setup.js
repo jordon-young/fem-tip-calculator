@@ -12,8 +12,8 @@ import {
 */
 
 /* Set Event Listeners */
-document.getElementById('tipCalculator').addEventListener('input', () => handleFormChange());
-document.getElementById('billedAmount').addEventListener('focusout', () => billedAmountOnFocusOut());
+document.getElementById('tip-calculator').addEventListener('input', () => handleFormChange());
+document.getElementById('billed-amount').addEventListener('focusout', () => billedAmountOnFocusOut());
 setupCustomTipFieldListeners();
 
 

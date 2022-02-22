@@ -1,50 +1,81 @@
 @use "../theme";
 
-input[type="number"] {
-  @extend .bold-24;
-
-  height: 4.8rem;
-  width: 100%;
-
-  border: none;
-  outline: none;
-  border-radius: 0.4rem;
-  text-align: right;
-
-  padding: 1.6rem;
-
-  background-color: theme.$input__background;
-  color: theme.$primary-dark;
-  caret-color: theme.$input__active;
-
-  &::placeholder {
-    color: theme.$input__placeholder;
+#input-card {
+  > *:not(:last-child) {
+    margin-bottom: 3.2rem;
   }
 
-  &:focus {
-    border: 0.2rem solid theme.$input__active;
+  label, legend {
+    @extend .bold-16;
+    color: theme.$input__label;
   }
 
-  &:invalid {
-    border: 0.2rem solid theme.$input__error;
-    caret-color: theme.$input__error;
-    color: theme.$input__error--dark;
-  }
-}
-
-fieldset {
-  label {
+  input[type="number"] {
     @extend .bold-24;
-    text-align: center;
-  }
-
-  input[type="radio"] {
-    width: 299px;
+  
     height: 4.8rem;
-
-    background-color: theme.$primary-dark;
+    width: 100%;
+  
+    border: none;
+    outline: none;
     border-radius: 0.4rem;
-    text-align: center;
-    color: white;
+    text-align: right;
+  
+    padding: 1.6rem;
+  
+    background-color: theme.$input__background;
+    color: theme.$primary-dark;
+    caret-color: theme.$input__active;
+  
+    &::placeholder {
+      color: theme.$input__placeholder;
+    }
+  
+    &:focus {
+      border: 0.2rem solid theme.$input__active;
+    }
+  
+    &:invalid {
+      border: 0.2rem solid theme.$input__error;
+      caret-color: theme.$input__error;
+      color: theme.$input__error--dark;
+    }
+  }
+  
+  fieldset {
+    legend {
+      padding-bottom: 1.6rem;
+    }
+  
+    label {
+      @extend .bold-24;
+      display: none;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      color: white;
+    }
+  
+    > div {
+      display: grid;
+  
+      grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+  
+      grid-auto-rows: 4.8rem;
+      grid-auto-columns: 1fr;
+      grid-gap: 1.6rem;
+  
+      grid-auto-flow: row;
+  
+      div {
+        height: 4.8rem;
+        max-width: 40rem;
+  
+        border-radius: 0.4rem;
+        background-color: theme.$primary-dark;
+      }
+    }
   }
 }
+
+

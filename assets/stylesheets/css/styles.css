@@ -83,41 +83,6 @@ input[type=number] {
   font-family: "Space Mono", monospace;
 }
 
-.size-12, .bold-12 {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  letter-spacing: 0.06em;
-}
-
-.size-14, label span, .bold-14 {
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-  letter-spacing: -0.05em;
-}
-
-.size-16, .font-defaults, body, .bold-16 {
-  font-size: 1.6rem;
-  line-height: 2.4rem;
-}
-
-.size-18, .bold-18, input[type=reset] {
-  font-size: 1.8rem;
-  line-height: 2.7rem;
-  letter-spacing: 0.06em;
-}
-
-.size-24, .bold-24, label,
-legend, input[type=number], fieldset label, .logo {
-  font-size: 2.4rem;
-  line-height: 3.6rem;
-}
-
-.size-32, output, .bold-32 {
-  font-size: 3.2rem;
-  line-height: 4.7rem;
-  letter-spacing: -0.02em;
-}
-
 .style-normal, .font-defaults, body {
   font-style: normal;
 }
@@ -126,9 +91,42 @@ legend, input[type=number], fieldset label, .logo {
   font-weight: 400;
 }
 
-.weight-bold, .bold-12, .bold-14, .bold-16, .bold-18, input[type=reset], .bold-24, label,
-legend, input[type=number], fieldset label, .logo, .bold-32 {
+.weight-bold, .bold-32, #display-card output, .bold-24, #input-card input[type=number], #input-card fieldset label, .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label, #input-card legend, .bold-14, .bold-12 {
   font-weight: 700;
+}
+
+.size-12, .bold-12 {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.06em;
+}
+
+.size-14, #display-card label span, .bold-14 {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  letter-spacing: -0.05em;
+}
+
+.size-16, .font-defaults, body, .bold-16, #display-card label, #input-card label, #input-card legend {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.size-18, .bold-18, #display-card input[type=reset] {
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  letter-spacing: 0.06em;
+}
+
+.size-24, .bold-24, #input-card input[type=number], #input-card fieldset label, .logo {
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+}
+
+.size-32, .bold-32, #display-card output {
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  letter-spacing: -0.02em;
 }
 
 .logo {
@@ -138,7 +136,13 @@ legend, input[type=number], fieldset label, .logo, .bold-32 {
 /*
     Color
 */
-input[type=number] {
+#input-card > *:not(:last-child) {
+  margin-bottom: 3.2rem;
+}
+#input-card label, #input-card legend {
+  color: #5e7a7d;
+}
+#input-card input[type=number] {
   height: 4.8rem;
   width: 100%;
   border: none;
@@ -150,68 +154,92 @@ input[type=number] {
   color: #00494d;
   caret-color: #44b4a6;
 }
-input[type=number]::placeholder {
+#input-card input[type=number]::placeholder {
   color: #9ebbbd;
 }
-input[type=number]:focus {
+#input-card input[type=number]:focus {
   border: 0.2rem solid #44b4a6;
 }
-input[type=number]:invalid {
+#input-card input[type=number]:invalid {
   border: 0.2rem solid #b77f70;
   caret-color: #b77f70;
   color: #a8796c;
 }
-
-fieldset label {
-  text-align: center;
+#input-card fieldset legend {
+  padding-bottom: 1.6rem;
 }
-fieldset input[type=radio] {
-  width: 299px;
+#input-card fieldset label {
+  display: none;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  color: white;
+}
+#input-card fieldset > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+  grid-auto-rows: 4.8rem;
+  grid-auto-columns: 1fr;
+  grid-gap: 1.6rem;
+  grid-auto-flow: row;
+}
+#input-card fieldset > div div {
   height: 4.8rem;
-  background-color: #00494d;
+  max-width: 40rem;
   border-radius: 0.4rem;
-  text-align: center;
+  background-color: #00494d;
+}
+
+#display-card {
+  padding: 4rem 2.4rem 2.4rem;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content) 1fr;
+}
+#display-card label {
   color: white;
 }
-
-label,
-legend {
-  color: #5e7a7d;
+#display-card label span {
+  color: #9ebbbd;
 }
-
-label span {
-  color: white;
-}
-
-output {
+#display-card output {
   text-align: right;
   color: #00e6c7;
 }
-output.desktop {
+#display-card output.desktop {
   font-size: 4.8rem;
   line-height: 7.1rem;
 }
-
-input[type=reset] {
+#display-card > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#display-card input[type=reset] {
   width: 100%;
-  padding: 1.2rem 0 0.9rem 0;
+  height: min-content;
+  align-self: end;
+  padding: 1.1rem 0 1rem 0;
+  margin-top: 1rem;
   border-radius: 0.4rem;
   text-transform: uppercase;
   color: #00494d;
   background-color: #00e6c7;
 }
-input[type=reset]:disabled {
+#display-card input[type=reset]:disabled {
   color: #00494d;
   background-color: #0d686d;
 }
-input[type=reset]:enabled:hover {
+#display-card input[type=reset]:enabled:hover {
   background-color: #9fe8df;
 }
 
-form#tipCalculator {
+#tip-calculator {
+  width: 37.5rem;
   background-color: white;
 }
-form#tipCalculator > :last-child {
+#tip-calculator > :last-child {
   background-color: #00494d;
 }
 
