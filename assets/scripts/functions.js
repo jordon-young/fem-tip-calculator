@@ -7,15 +7,22 @@
 */
 
 function showCustomTipField() {
-  document.querySelector('.custom-tip-radio').setAttribute('style', 'display: none;');
-  const customTipField = document.getElementById('custom-tip');
-  customTipField.removeAttribute('hidden');
-  customTipField.focus();
+  // Hide custom-tip-radio div
+  document.querySelector('.custom-tip-radio').classList.add('accessibility-safe-hide');
+
+  // Show custom-tip div
+  document.querySelector('.custom-tip').classList.remove('accessibility-safe-hide');
+
+  // Focus custom-tip input
+  document.getElementById('custom-tip').focus();
 }
 
 function hideCustomTipField() {
-  document.getElementById('custom-tip').setAttribute('hidden', 'true');
-  document.querySelector('.custom-tip-radio').removeAttribute('style');
+  // Hide custom-tip div
+  document.querySelector('.custom-tip').classList.add('accessibility-safe-hide');
+
+  // Show custom-tip-radio div
+  document.querySelector('.custom-tip-radio').classList.remove('accessibility-safe-hide');
 }
 
 export function setupCustomTipFieldListeners() {

@@ -96,7 +96,7 @@ input[type=number] {
   font-weight: 700;
 }
 
-.size-12, .bold-12 {
+.size-12, footer, .bold-12 {
   font-size: 1.2rem;
   line-height: 1.8rem;
   letter-spacing: 0.06em;
@@ -120,7 +120,7 @@ input[type=number] {
   letter-spacing: 0.06em;
 }
 
-.size-24, .bold-24, #input-card input[type=number], #input-card fieldset label, .logo {
+.size-24, #input-card .input-with-icon img, #input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset label, .logo {
   font-size: 2.4rem;
   line-height: 3.6rem;
 }
@@ -171,6 +171,28 @@ input[type=number] {
   border: 0.2rem solid #b77f70;
   caret-color: #b77f70;
   color: #a8796c;
+}
+#input-card > div > label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+#input-card .input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#input-card .input-with-icon img, #input-card .input-with-icon span {
+  position: absolute;
+  left: 1.6rem;
+  z-index: 2;
+  pointer-events: none;
+  color: #9ebbbd;
+}
+#input-card fieldset .accessibility-safe-hide {
+  opacity: 0;
+  position: absolute;
+  top: -99rem;
+  z-index: -1;
 }
 #input-card fieldset legend {
   padding-bottom: 1.6rem;
@@ -276,6 +298,16 @@ input[type=number] {
 }
 #tip-calculator > :last-child {
   background-color: #00494d;
+}
+
+footer {
+  color: #5e7a7d;
+}
+footer a:visited {
+  color: #5e7a7d;
+}
+footer a:hover {
+  color: #00494d;
 }
 
 :root {

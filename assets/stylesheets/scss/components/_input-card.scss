@@ -46,7 +46,35 @@
     }
   }
 
+  > div > label {
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    img, span {
+      position: absolute;
+      left: 1.6rem;
+      z-index: 2;
+      pointer-events: none;
+
+      @extend .size-24;
+      color: theme.$input__placeholder;
+    }
+  }
+
   fieldset {
+    .accessibility-safe-hide {
+      opacity: 0;
+      position: absolute;
+      top: -99rem;
+      z-index: -1;
+    }
+
     legend {
       padding-bottom: 1.6rem;
     }
@@ -95,7 +123,7 @@
       grid-auto-rows: 4.8rem;
       grid-auto-flow: row;
 
-      > div {
+      > div { // :not(:last-child)
         height: 4.8rem;
         max-width: 40rem;
 

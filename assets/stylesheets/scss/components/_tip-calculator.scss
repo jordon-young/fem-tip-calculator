@@ -14,3 +14,16 @@
     background-color: theme.$primary-dark;
   }
 }
+
+footer {
+  @extend .size-12;
+  color: theme.$input__label;
+
+  a:visited {
+    color: theme.$input__label;
+  }
+
+  a:hover {
+    color: theme.$primary-dark;
+  }
+}
