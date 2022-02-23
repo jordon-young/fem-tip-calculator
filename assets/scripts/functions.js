@@ -7,17 +7,21 @@
 */
 
 function showCustomTipField() {
-  document.getElementById('custom-tip').removeAttribute('hidden');
+  document.querySelector('.custom-tip-radio').setAttribute('style', 'display: none;');
+  const customTipField = document.getElementById('custom-tip');
+  customTipField.removeAttribute('hidden');
+  customTipField.focus();
 }
 
 function hideCustomTipField() {
   document.getElementById('custom-tip').setAttribute('hidden', 'true');
+  document.querySelector('.custom-tip-radio').removeAttribute('style');
 }
 
 export function setupCustomTipFieldListeners() {
-  document.getElementById('tip-custom').addEventListener('change', () => showCustomTipField());
+  document.querySelector('#tip-custom').addEventListener('change', () => {showCustomTipField()});
 
-  document.querySelectorAll('input[type=radio]:not(#tipCustom)').forEach(el => {
+  document.querySelectorAll('input[type=radio]:not(#tip-custom)').forEach(el => {
     el.addEventListener('change', () => hideCustomTipField());
   });
 }

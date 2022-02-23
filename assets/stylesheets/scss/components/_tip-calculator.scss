@@ -1,14 +1,16 @@
-@use 'input-card';
-@use 'display-card';
-@use '../theme';
+@use "input-card";
+@use "display-card";
+@use "../theme";
 
 #tip-calculator {
-	width: 37.5rem; // Temporary
+  // width: 37.5rem; // Temporary
+  padding: 3.2rem 2.4rem;
 
+  border-radius: 2.5rem;
 
-	background-color: theme.$card__background;
+  background-color: theme.$card__background;
 
-	> :last-child {
-		background-color: theme.$primary-dark;
-	}
+  > :last-child {
+    background-color: theme.$primary-dark;
+  }
 }

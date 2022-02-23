@@ -1,7 +1,8 @@
-@use '../theme';
+@use "../theme";
 
 #display-card {
   padding: 4rem 2.4rem 2.4rem;
+  border-radius: 1.4rem;
 
   display: grid;
   gap: 2.5rem;
@@ -9,36 +10,34 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, min-content) 1fr;
 
-  
-
   label {
     @extend .bold-16;
     color: white;
   }
-  
+
   label span {
     @extend .size-14;
     color: theme.$input__placeholder;
   }
-  
+
   output {
     @extend .bold-32;
     text-align: right;
     color: theme.$primary;
-  
+
     &.desktop {
       font-size: 4.8rem;
       line-height: 7.1rem;
     }
   }
-  
+
   > div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 
-  input[type=reset] {
+  input[type="reset"] {
     width: 100%;
     height: min-content;
     align-self: end;
@@ -46,18 +45,18 @@
     padding: 1.1rem 0 1rem 0;
     margin-top: 1rem;
     border-radius: 0.4rem;
-  
+
     @extend .bold-18;
     text-transform: uppercase;
-  
+
     color: theme.$primary-dark;
     background-color: theme.$primary;
-  
+
     &:disabled {
       color: theme.$button-disabled-text;
       background-color: theme.$button-disabled;
     }
-  
+
     &:enabled:hover {
       background-color: theme.$primary-light;
     }

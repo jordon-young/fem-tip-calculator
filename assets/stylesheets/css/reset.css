@@ -11,10 +11,6 @@ fieldset {
   border: none;
 }
 
-input[type="radio"] {
-  /* float: left; */
-}
-
 input[type="reset"] {
   border: none;
 }
