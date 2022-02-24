@@ -1,14 +1,21 @@
-@use 'theme';
+@use "theme";
 
-@use './components/tip-calculator.scss';
+@use "./components/tip-calculator.scss";
 
-:root {
-	// Typically, this will equal 10px
-	font-size: 62.5%;
+@mixin html {
+  html {
+    // Typically, this will equal 10px
+    font-size: 62.5%;
+    @content;
+  }
+}
+
+@include html {
+  @import "./layout/breakpoints";
 }
 
 body {
-	@extend .font-defaults;
-	
-	background-color: theme.$page__background;
+  @extend .font-defaults;
+
+  background-color: theme.$page__background;
 }

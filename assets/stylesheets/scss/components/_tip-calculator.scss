@@ -1,17 +1,22 @@
 @use "input-card";
 @use "display-card";
 @use "../theme";
+@use "../layout/breakpoints" as *;
 
 #tip-calculator {
-  // width: 37.5rem; // Temporary
+  width: 37.5rem;
   padding: 3.2rem 2.4rem;
 
   border-radius: 2.5rem;
-
   background-color: theme.$card__background;
 
   > :last-child {
     background-color: theme.$primary-dark;
+  }
+
+  @include min {
+    width: 37.5rem;
+    margin: 14.4rem 4.8rem;
   }
 }
 
