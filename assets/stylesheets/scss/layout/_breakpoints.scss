@@ -1,28 +1,30 @@
+@use "sass:math";
+
+$browser-context: 16px; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return calc(($pixels / $context) * 1em);
+}
+
 $breakpoints: (
-  "min": 375px,
-  "xxs": 439px,
-  "xs": 57.6rem,
-  "sm": 72rem,
-  "md": 87.5em,
-  "ml": 104.7em,
-  "lg": 115.5em,
-  "xl": 144em,
+  "mn": em(375px),
+  "xs": em(471px),
+  "sm": em(576px),
+  "ms": em(720px),
+  "md": em(875px),
+  "ml": em(1047px),
+  "lg": em(1155px),
+  "xl": em(1440px),
 );
 
 // Grow margin
-@mixin min {
-  @media (min-width: map-get($breakpoints, "min")) {
+@mixin mn {
+  @media (min-width: map-get($breakpoints, "mn")) {
     @content;
   }
 }
 
 // Grow card
-@mixin xxs {
-  @media (min-width: map-get($breakpoints, "xxs")) {
-    @content;
-  }
-}
-
 @mixin xs {
   @media (min-width: map-get($breakpoints, "xs")) {
     @content;
@@ -31,6 +33,12 @@ $breakpoints: (
 
 @mixin sm {
   @media (min-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin ms {
+  @media (min-width: map-get($breakpoints, "ms")) {
     @content;
   }
 }

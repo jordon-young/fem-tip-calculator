@@ -91,12 +91,12 @@ input[type=number] {
   font-weight: 400;
 }
 
-.weight-bold, .bold-32, #display-card output, .bold-24, #input-card input[type=number], #input-card fieldset label, .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
+.weight-bold, .bold-32, #display-card output, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
 #input-card legend, .bold-14, .bold-12 {
   font-weight: 700;
 }
 
-.size-12, footer, .bold-12 {
+.size-12, footer p, .bold-12 {
   font-size: 1.2rem;
   line-height: 1.8rem;
   letter-spacing: 0.06em;
@@ -120,7 +120,7 @@ input[type=number] {
   letter-spacing: 0.06em;
 }
 
-.size-24, #input-card .input-with-icon img, #input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset label, .logo {
+.size-24, #input-card .input-with-icon img, #input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo {
   font-size: 2.4rem;
   line-height: 3.6rem;
 }
@@ -131,13 +131,62 @@ input[type=number] {
   letter-spacing: -0.02em;
 }
 
-.logo {
-  letter-spacing: 0.42em;
-}
-
 /*
     Color
 */
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #c5e4e7;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr max-content 1fr;
+  justify-items: center;
+}
+
+header {
+  height: fit-content;
+  align-self: end;
+}
+header .logo {
+  width: 9rem;
+  height: 7.5rem;
+  margin-top: 4rem;
+  margin-bottom: 3.2rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: #3d6666;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  height: fit-content;
+  margin: 3.2rem 0;
+}
+footer > :first-child {
+  padding-bottom: 0.6rem;
+}
+footer p {
+  color: #5e7a7d;
+  text-align: center;
+}
+footer a {
+  color: #5e7a7d;
+}
+footer a:visited {
+  color: inherit;
+}
+footer a:hover, footer a:focus {
+  color: #00494d;
+}
+
 #input-card {
   padding: 0 0.8rem;
   margin-bottom: 3.2rem;
@@ -188,6 +237,10 @@ input[type=number] {
   pointer-events: none;
   color: #9ebbbd;
 }
+#input-card fieldset {
+  padding: 0;
+  border: none;
+}
 #input-card fieldset .accessibility-safe-hide {
   opacity: 0;
   position: absolute;
@@ -227,19 +280,33 @@ input[type=number] {
 #input-card fieldset > div {
   display: grid;
   grid-gap: 1.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
-  grid-auto-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 4.8rem;
   grid-auto-flow: row;
 }
-#input-card fieldset > div > div {
+@media (min-width: 36em) {
+  #input-card fieldset > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 45em) {
+  #input-card fieldset > div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #input-card fieldset > div > :nth-last-child(3) {
+    grid-area: 2/1/3/3 !important;
+  }
+  #input-card fieldset > div > :nth-last-child(2), #input-card fieldset > div > :last-child {
+    grid-area: 2/3/3/5;
+  }
+}
+#input-card fieldset > div > div:not(:last-child) {
   height: 4.8rem;
-  max-width: 40rem;
   display: grid;
   justify-content: stretch;
   align-content: stretch;
 }
-#input-card fieldset > div > div > * {
+#input-card fieldset > div > div:not(:last-child) > * {
   display: block;
   grid-row: 1/2;
   grid-column: 1/2;
@@ -250,7 +317,7 @@ input[type=number] {
   border-radius: 1.4rem;
   display: grid;
   gap: 2.5rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: repeat(2, min-content) 1fr;
 }
 #display-card label {
@@ -278,6 +345,7 @@ input[type=number] {
   align-self: end;
   padding: 1.1rem 0 1rem 0;
   margin-top: 1rem;
+  border: none;
   border-radius: 0.4rem;
   text-transform: uppercase;
   color: #00494d;
@@ -300,29 +368,11 @@ input[type=number] {
 #tip-calculator > :last-child {
   background-color: #00494d;
 }
-@media (min-width: 375px) {
+@media (min-width: 29.4375em) {
   #tip-calculator {
-    width: 37.5rem;
-    margin: 14.4rem 4.8rem;
+    width: calc(100% - 4.8rem);
+    margin: 0 4.8rem;
   }
-}
-
-footer {
-  color: #5e7a7d;
-}
-footer a:visited {
-  color: #5e7a7d;
-}
-footer a:hover {
-  color: #00494d;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  background-color: #c5e4e7;
 }
 
 /*# sourceMappingURL=styles.css.map */

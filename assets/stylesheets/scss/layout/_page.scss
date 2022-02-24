@@ -1,0 +1,68 @@
+@use "../theme";
+@use "breakpoints" as *;
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  @extend .font-defaults;
+  background-color: theme.$page__background;
+
+  display: grid;
+  grid-template-columns: auto;
+  // grid-template-rows: minmax(max-content, 1fr) max-content minmax(fit-content, 1fr);
+	grid-template-rows: 1fr max-content 1fr;
+
+	justify-items: center;
+}
+
+header {
+	height: fit-content;
+	align-self: end;
+
+	.logo {
+		width: 9rem;
+		height: 7.5rem;
+		margin-top: 4rem;
+		margin-bottom: 3.2rem;
+	
+		@extend .bold-24;
+		letter-spacing: 0.42em;
+		text-transform: uppercase;
+		color: theme.$logo;
+	}
+}
+
+main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+footer {
+	height: fit-content;
+  margin: 3.2rem 0;
+	
+	> :first-child {
+		padding-bottom: 0.6rem;
+	}
+
+	p {
+		@extend .size-12;
+  	color: theme.$input__label;
+		text-align: center;
+	}
+
+	a {
+    color: theme.$input__label;
+
+		&:visited {
+			color: inherit;
+		}
+	
+		&:hover, &:focus {
+			color: theme.$primary-dark;
+		}
+  }
+}

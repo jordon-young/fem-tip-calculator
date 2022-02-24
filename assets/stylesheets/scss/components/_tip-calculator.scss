@@ -1,5 +1,3 @@
-@use "input-card";
-@use "display-card";
 @use "../theme";
 @use "../layout/breakpoints" as *;
 
@@ -14,21 +12,8 @@
     background-color: theme.$primary-dark;
   }
 
-  @include min {
-    width: 37.5rem;
-    margin: 14.4rem 4.8rem;
-  }
-}
-
-footer {
-  @extend .size-12;
-  color: theme.$input__label;
-
-  a:visited {
-    color: theme.$input__label;
-  }
-
-  a:hover {
-    color: theme.$primary-dark;
+  @include xs {
+    width: calc(100% - 4.8rem);
+    margin: 0 4.8rem;
   }
 }

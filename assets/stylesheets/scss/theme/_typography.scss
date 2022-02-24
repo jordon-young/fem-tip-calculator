@@ -79,8 +79,3 @@
 .font-defaults {
 	@extend .font-family, .style-normal, .size-16, .weight-regular ;
 }
-
-.logo {
-	@extend .bold-24;
-	letter-spacing: 0.42em;
-}
