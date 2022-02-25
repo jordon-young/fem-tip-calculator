@@ -130,8 +130,8 @@ export function handleFormChange() {
     console.error('Something went wrong with the calculation...');
   }
 
-  setTipAmount(formatCurrency(tipAmount));
-  setTotalAmount(formatCurrency(totalAmount));
+  setTipAmount(tipAmount);
+  setTotalAmount(totalAmount);
   enableResetButton();
 }
 
