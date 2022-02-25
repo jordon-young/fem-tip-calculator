@@ -120,7 +120,8 @@ input[type=number] {
   letter-spacing: 0.06em;
 }
 
-.size-24, #input-card .input-with-icon img, #input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo {
+.size-24, #input-card .input-with-icon img,
+#input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo {
   font-size: 2.4rem;
   line-height: 3.6rem;
 }
@@ -191,6 +192,12 @@ footer a:hover, footer a:focus {
   padding: 0 0.8rem;
   margin-bottom: 3.2rem;
 }
+@media (min-width: 54.6875em) {
+  #input-card {
+    margin-bottom: 0;
+    padding: 1.6rem 0;
+  }
+}
 #input-card > *:not(:last-child) {
   margin-bottom: 3.2rem;
 }
@@ -230,7 +237,8 @@ footer a:hover, footer a:focus {
   display: flex;
   align-items: center;
 }
-#input-card .input-with-icon img, #input-card .input-with-icon span {
+#input-card .input-with-icon img,
+#input-card .input-with-icon span {
   position: absolute;
   left: 1.6rem;
   z-index: 2;
@@ -293,11 +301,25 @@ footer a:hover, footer a:focus {
   #input-card fieldset > div {
     grid-template-columns: repeat(4, 1fr);
   }
-  #input-card fieldset > div > :nth-last-child(3) {
-    grid-area: 2/1/3/3 !important;
+  #input-card fieldset > div > :nth-last-child(3),
+#input-card fieldset > div > :nth-last-child(2),
+#input-card fieldset > div > :last-child {
+    grid-column: span 2;
   }
-  #input-card fieldset > div > :nth-last-child(2), #input-card fieldset > div > :last-child {
-    grid-area: 2/3/3/5;
+}
+@media (min-width: 54.6875em) {
+  #input-card fieldset > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #input-card fieldset > div > :nth-last-child(3),
+#input-card fieldset > div > :nth-last-child(2),
+#input-card fieldset > div > :last-child {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 72.1875em) {
+  #input-card fieldset > div {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 #input-card fieldset > div > div:not(:last-child) {
@@ -320,6 +342,11 @@ footer a:hover, footer a:focus {
   grid-template-columns: 100%;
   grid-template-rows: repeat(2, min-content) 1fr;
 }
+@media (min-width: 65.4375em) {
+  #display-card {
+    padding: 4rem;
+  }
+}
 #display-card label {
   color: white;
 }
@@ -330,14 +357,17 @@ footer a:hover, footer a:focus {
   text-align: right;
   color: #00e6c7;
 }
-#display-card output.desktop {
-  font-size: 4.8rem;
-  line-height: 7.1rem;
+@media (min-width: 65.4375em) {
+  #display-card output {
+    font-size: 4.8rem;
+    line-height: 7.1rem;
+  }
 }
 #display-card > div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 #display-card input[type=reset] {
   width: 100%;
@@ -372,6 +402,23 @@ footer a:hover, footer a:focus {
   #tip-calculator {
     width: calc(100% - 4.8rem);
     margin: 0 4.8rem;
+  }
+}
+@media (min-width: 54.6875em) {
+  #tip-calculator {
+    display: grid;
+    grid-template-columns: 30.8rem minmax(34.3rem, 48.3rem);
+    gap: 4.8rem;
+    padding: 3.2rem;
+    padding-left: 4.8rem;
+    max-width: 91.9rem;
+  }
+}
+@media (min-width: 65.4375em) {
+  #tip-calculator {
+    grid-template-columns: minmax(30.8rem, 41.6rem) 48.3rem;
+    margin: 0 6.4rem;
+    max-width: 102.7rem;
   }
 }
 

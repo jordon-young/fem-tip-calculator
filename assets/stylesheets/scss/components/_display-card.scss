@@ -11,6 +11,10 @@
   grid-template-columns: 100%;
   grid-template-rows: repeat(2, min-content) 1fr;
 
+  @include ml {
+    padding: 4rem;
+  }
+
   label {
     @extend .bold-16;
     color: white;
@@ -26,7 +30,7 @@
     text-align: right;
     color: theme.$primary;
 
-    &.desktop {
+    @include ml {
       font-size: 4.8rem;
       line-height: 7.1rem;
     }
@@ -36,6 +40,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 
   input[type="reset"] {
