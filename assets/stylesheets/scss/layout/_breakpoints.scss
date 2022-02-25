@@ -12,6 +12,7 @@ $breakpoints: (
   "sm": em(576px),
   "ms": em(720px),
   "md": em(875px),
+  "md-2": em(1015px),
   "ml": em(1047px),
   "lg": em(1155px),
   "xl": em(1440px),
@@ -52,7 +53,15 @@ $breakpoints: (
   }
 }
 
-// Desktop display card font
+// Desktop display card font, spacing; Grow margin
+@mixin md-2 {
+  @media (min-width: map-get($breakpoints, "md-2")) {
+    @content;
+  }
+}
+
+
+// Grow input card only
 @mixin ml {
   @media (min-width: map-get($breakpoints, "ml")) {
     @content;
@@ -66,6 +75,7 @@ $breakpoints: (
   }
 }
 
+// Grow margin; card fixed width.
 @mixin xl {
   @media (min-width: map-get($breakpoints, "xl")) {
     @content;

@@ -11,7 +11,7 @@
   grid-template-columns: 100%;
   grid-template-rows: repeat(2, min-content) 1fr;
 
-  @include ml {
+  @include md-2 {
     padding: 4rem;
   }
 
@@ -30,7 +30,7 @@
     text-align: right;
     color: theme.$primary;
 
-    @include ml {
+    @include md-2 {
       font-size: 4.8rem;
       line-height: 7.1rem;
     }

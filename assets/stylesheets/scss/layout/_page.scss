@@ -3,22 +3,23 @@
 
 :root {
   font-size: 62.5%;
+  min-width: fit-content;
 }
 
 body {
+  height: fit-content;
+
   @extend .font-defaults;
   background-color: theme.$page__background;
 
   display: grid;
-  grid-template-columns: auto;
-  // grid-template-rows: minmax(max-content, 1fr) max-content minmax(fit-content, 1fr);
+  grid-template-columns: 100%;
 	grid-template-rows: 1fr max-content 1fr;
-
 	justify-items: center;
 }
 
 header {
-	height: fit-content;
+	min-height: max-content;
 	align-self: end;
 
 	.logo {
@@ -41,7 +42,7 @@ main {
 }
 
 footer {
-	height: fit-content;
+	min-height: max-content;
   margin: 3.2rem 0;
 	
 	> :first-child {
@@ -55,7 +56,7 @@ footer {
 	}
 
 	a {
-    color: theme.$input__label;
+	color: theme.$input__label;
 
 		&:visited {
 			color: inherit;
