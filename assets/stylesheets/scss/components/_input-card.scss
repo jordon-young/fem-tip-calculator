@@ -29,6 +29,7 @@
     border: none;
     outline: none;
     border-radius: 0.4rem;
+    border-color: theme.$card__background;
     text-align: right;
 
     padding: 1.6rem;
@@ -36,6 +37,8 @@
     background-color: theme.$input__background;
     color: theme.$primary-dark;
     caret-color: theme.$input__active;
+
+    @include theme.transition-color;
 
     &::placeholder {
       color: theme.$input__placeholder;
@@ -90,8 +93,9 @@
       padding-bottom: 1.6rem;
     }
 
-    input {
+    input[type=radio] {
       z-index: 0;
+      opacity: 0;
 
       &:checked + label {
         background-color: theme.$primary;
@@ -110,6 +114,7 @@
 
       z-index: 1;
 
+      @include theme.transition-color;
       &:hover {
         background-color: theme.$primary-light;
         color: theme.$primary-dark;
@@ -119,6 +124,7 @@
     label[for="tip-custom"] {
       background-color: theme.$input__background;
       color: theme.$input__label;
+      @include theme.transition-color;
 
       &:hover {
         background-color: theme.$primary-light;

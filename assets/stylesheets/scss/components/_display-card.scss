@@ -60,6 +60,9 @@
     color: theme.$primary-dark;
     background-color: theme.$primary;
 
+    @include theme.transition-color;
+    transition-delay: theme.$transition-delay;
+
     &:disabled {
       color: theme.$button-disabled-text;
       background-color: theme.$button-disabled;
@@ -67,6 +70,7 @@
 
     &:enabled:hover {
       background-color: theme.$primary-light;
+      transition-delay: 0ms;
     }
   }
 }

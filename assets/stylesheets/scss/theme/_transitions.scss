@@ -1,0 +1,7 @@
+$duration: 400ms;
+$delay: 300ms;
+
+@mixin color {
+    transition-property: color, background-color, border-color;
+    transition-duration: $duration;
+}

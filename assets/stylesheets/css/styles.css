@@ -211,11 +211,14 @@ footer a:hover, footer a:focus {
   border: none;
   outline: none;
   border-radius: 0.4rem;
+  border-color: white;
   text-align: right;
   padding: 1.6rem;
   background-color: #f4fafa;
   color: #00494d;
   caret-color: #44b4a6;
+  transition-property: color, background-color, border-color;
+  transition-duration: 400ms;
 }
 #input-card input[type=number]::placeholder {
   color: #9ebbbd;
@@ -258,10 +261,11 @@ footer a:hover, footer a:focus {
 #input-card fieldset legend {
   padding-bottom: 1.6rem;
 }
-#input-card fieldset input {
+#input-card fieldset input[type=radio] {
   z-index: 0;
+  opacity: 0;
 }
-#input-card fieldset input:checked + label {
+#input-card fieldset input[type=radio]:checked + label {
   background-color: #00e6c7;
   color: #00494d;
 }
@@ -272,6 +276,8 @@ footer a:hover, footer a:focus {
   background-color: #00494d;
   color: white;
   z-index: 1;
+  transition-property: color, background-color, border-color;
+  transition-duration: 400ms;
 }
 #input-card fieldset label:hover {
   background-color: #9fe8df;
@@ -280,6 +286,8 @@ footer a:hover, footer a:focus {
 #input-card fieldset label[for=tip-custom] {
   background-color: #f4fafa;
   color: #5e7a7d;
+  transition-property: color, background-color, border-color;
+  transition-duration: 400ms;
 }
 #input-card fieldset label[for=tip-custom]:hover {
   background-color: #9fe8df;
@@ -380,6 +388,9 @@ footer a:hover, footer a:focus {
   text-transform: uppercase;
   color: #00494d;
   background-color: #00e6c7;
+  transition-property: color, background-color, border-color;
+  transition-duration: 400ms;
+  transition-delay: 300ms;
 }
 #display-card input[type=reset]:disabled {
   color: #00494d;
@@ -387,6 +398,7 @@ footer a:hover, footer a:focus {
 }
 #display-card input[type=reset]:enabled:hover {
   background-color: #9fe8df;
+  transition-delay: 0ms;
 }
 
 #tip-calculator {
