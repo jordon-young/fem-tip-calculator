@@ -214,6 +214,7 @@ footer a:hover, footer a:focus {
   border-color: white;
   text-align: right;
   padding: 1.6rem;
+  padding-left: 4rem;
   background-color: #f4fafa;
   color: #00494d;
   caret-color: #44b4a6;
