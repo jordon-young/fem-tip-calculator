@@ -18,6 +18,8 @@
   label {
     @extend .bold-16;
     color: white;
+    min-width: max-content;
+    margin-right: 2rem;
   }
 
   label span {
@@ -29,6 +31,8 @@
     @extend .bold-32;
     text-align: right;
     color: theme.$primary;
+    flex-grow: 1;
+    overflow: hidden;
 
     @include md-2 {
       font-size: 4.8rem;
@@ -39,7 +43,7 @@
   > div {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
   }
 

@@ -33,7 +33,6 @@
     text-align: right;
 
     padding: 1.6rem;
-    padding-left: 4rem;
 
     background-color: theme.$input__background;
     color: theme.$primary-dark;
@@ -70,11 +69,15 @@
     span {
       position: absolute;
       left: 1.6rem;
+
       z-index: 2;
       pointer-events: none;
 
       @extend .size-24;
       color: theme.$input__placeholder;
+
+      padding: 0.25rem 4rem 0.25rem 0;
+      background: linear-gradient(to right, rgba(244, 250, 250, 1) 50%, rgba(244, 250, 250, 0) 100%);
     }
   }
 
