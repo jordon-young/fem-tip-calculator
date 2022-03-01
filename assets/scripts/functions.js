@@ -1,39 +1,5 @@
 
 /*
-    Custom Tip Field
-    
-    Show / Hide Helpers
-    Setup Functionality 
-*/
-
-function showCustomTipField() {
-  // Hide custom-tip-radio div
-  document.querySelector('.custom-tip-radio').classList.add('accessibility-safe-hide');
-
-  // Show custom-tip div
-  document.querySelector('.custom-tip').classList.remove('accessibility-safe-hide');
-
-  // Focus custom-tip input
-  document.getElementById('custom-tip').focus();
-}
-
-function hideCustomTipField() {
-  // Hide custom-tip div
-  document.querySelector('.custom-tip').classList.add('accessibility-safe-hide');
-
-  // Show custom-tip-radio div
-  document.querySelector('.custom-tip-radio').classList.remove('accessibility-safe-hide');
-}
-
-export function setupCustomTipFieldListeners() {
-  document.querySelector('#tip-custom').addEventListener('change', () => {showCustomTipField()});
-
-  document.querySelectorAll('input[type=radio]:not(#tip-custom)').forEach(el => {
-    el.addEventListener('change', () => hideCustomTipField());
-  });
-}
-
-/*
     Currency & Calculations
 
     Formatting
@@ -41,29 +7,11 @@ export function setupCustomTipFieldListeners() {
     Form Output Setters
 */
 
-function formatCurrency(amount) {
-  return (+amount).toFixed(2);
-}
-
-// Format Input on Focus Out
-export function billedAmountOnFocusOut() {
-  const el = document.querySelector('#billed-amount');
-  if (el.value > 0) {
-    el.value = formatCurrency(el.value);
-  }
-}
 
 function calculateTip(data) {
   return data.billedAmount * data.tipPercent;
 }
 
-function setTipAmount(amount) {
-  document.getElementById('tip-amount').innerText = '$' + formatCurrency(amount);
-}
-
-function setTotalAmount(amount) {
-  document.getElementById('total-amount').innerText = '$' + formatCurrency(amount);
-}
 
 /* 
     
@@ -135,24 +83,4 @@ export function handleFormChange() {
   enableResetButton();
 }
 
-/*
-    Setup & Resets
-*/
-
-function enableResetButton(){
-  document.querySelector('input[type="reset"]').removeAttribute('disabled');
-}
-
-function disableResetButton(){
-  document.querySelector('input[type="reset"]').setAttribute('disabled', 'true');
-}
-
-export function resetForm() {
-  hideCustomTipField();
-  disableResetButton();
-
-  document.querySelectorAll('output').forEach(el => {
-    el.innerText = '$0.00';
-  });
-}
 
