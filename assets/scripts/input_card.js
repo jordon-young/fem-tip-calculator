@@ -1,14 +1,14 @@
-const inputCardId = "input-card",
-  amountBilledId = "amount-billed",
-  customTipId = "custom-tip",
-  numPeopleId = "number-of-people";
+const INPUT_CARD_ID = "input-card",
+  AMOUNT_BILLED_ID = "amount-billed",
+  CUSTOM_TIP_ID = "custom-tip",
+  NUMBER_OF_PEOPLE_ID = "number-of-people";
 
 /*
     Amount Billed 
 */
 
 function getAmountBilled() {
-  const input = document.getElementById(amountBilledId);
+  const input = document.getElementById(AMOUNT_BILLED_ID);
   let amountBilled = null;
   if (input.checkValidity() || !isNaN(input.value)) {
     amountBilled = +input.value;
@@ -24,7 +24,7 @@ function formatAmountBilled(e) {
 }
 
 function watchBilledAmount() {
-  document.getElementById(amountBilledId).addEventListener("blur", (e) => formatAmountBilled(e));
+  document.getElementById(AMOUNT_BILLED_ID).addEventListener("blur", (e) => formatAmountBilled(e));
 }
 
 /*
@@ -34,30 +34,32 @@ function watchBilledAmount() {
 function showCustomTipField() {
   // Hide custom-tip-radio div
   document
-    .querySelector(`#${inputCardId} .custom-tip-radio`)
+    .querySelector(`#${INPUT_CARD_ID} .custom-tip-radio`)
     .classList.add("accessibility-safe-hide");
 
   // Show custom-tip div
-  document.querySelector(`#${inputCardId} .custom-tip`).classList.remove("accessibility-safe-hide");
+  document.querySelector(`#${INPUT_CARD_ID} .custom-tip`).classList.remove("accessibility-safe-hide");
 
   // Focus custom-tip input
-  document.getElementById(customTipId).focus();
+  document.getElementById(CUSTOM_TIP_ID).focus();
 }
 
 export function hideCustomTipField() {
   // Hide custom-tip div
-  document.querySelector(`#${inputCardId} .custom-tip`).classList.add("accessibility-safe-hide");
+  document.querySelector(`#${INPUT_CARD_ID} .custom-tip`).classList.add("accessibility-safe-hide");
 
   // Show custom-tip-radio div
   document
-    .querySelector(`#${inputCardId} .custom-tip-radio`)
+    .querySelector(`#${INPUT_CARD_ID} .custom-tip-radio`)
     .classList.remove("accessibility-safe-hide");
 }
 
 function getTipPercentage() {
   const checkedRadio = document.querySelector("input[type=radio][name=tip-percent]:checked"),
-    customTipField = document.getElementById(customTipId);
+    customTipField = document.getElementById(CUSTOM_TIP_ID);
+
   let tipPercentage = 0;
+
   if (checkedRadio !== null && checkedRadio.value !== "custom") {
     console.log(checkedRadio.value);
     tipPercentage = +checkedRadio.value;
@@ -67,10 +69,16 @@ function getTipPercentage() {
   return tipPercentage;
 }
 
+function formatCustomTip(e){
+  if (e.target.checkValidity() == false) e.target.value = undefined;
+}
+
 function watchCustomTip() {
   document.getElementById("tip-custom").addEventListener("change", () => showCustomTipField());
 
-  document.querySelectorAll(`#${inputCardId} input[type=radio]:not(#tip-custom)`).forEach((el) => {
+  document.getElementById(CUSTOM_TIP_ID).addEventListener("blur", (e) => formatCustomTip(e));
+
+  document.querySelectorAll(`#${INPUT_CARD_ID} input[type=radio]:not(#tip-custom)`).forEach((el) => {
     el.addEventListener("change", () => hideCustomTipField());
   });
 }
@@ -80,7 +88,7 @@ function watchCustomTip() {
 */
 
 function getNumPeople() {
-  const input = document.getElementById(numPeopleId);
+  const input = document.getElementById(NUMBER_OF_PEOPLE_ID);
   let numPeople = 1;
   if (input.checkValidity() && input.value !== "") {
     numPeople = +input.value;
@@ -89,7 +97,7 @@ function getNumPeople() {
 }
 
 function formatNumPeople(e) {
-  if (e.target.value == "") {
+    if (e.target.value == "") {
     e.target.value = 1;
   } else if (!isNaN(e.target.value)) {
     e.target.value = (+e.target.value).toFixed();
@@ -98,7 +106,8 @@ function formatNumPeople(e) {
 }
 
 function watchNumPeople() {
-  document.getElementById(numPeopleId).addEventListener("blur", (e) => formatNumPeople(e));
+  const input = document.getElementById(NUMBER_OF_PEOPLE_ID);
+  input.addEventListener("blur", (e) => formatNumPeople(e));
 }
 
 /*

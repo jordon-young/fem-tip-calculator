@@ -8,8 +8,8 @@ function resetForm() {
   input_card.hideCustomTipField();
   display_card.disableResetButton();
 
-  display_card.displayOutput(display_card.tipId);
-  display_card.displayOutput(display_card.totalId);
+  display_card.displayOutput(display_card.TIP_OUTPUT_ID);
+  display_card.displayOutput(display_card.TOTAL_OUTPUT_ID);
 }
 
 /*
@@ -26,12 +26,11 @@ function handleFormChange() {
 function calculateTip() {
   const data = input_card.getFormData();
 
-  let tipTotal = 0;
-  tipTotal = (data.amountBilled * data.tipPercentage) / data.numberOfPeople;
-  display_card.displayOutput(display_card.tipId, tipTotal);
+  const tipTotal = data.amountBilled * data.tipPercentage;
+  display_card.displayOutput(display_card.TIP_OUTPUT_ID, tipTotal / data.numberOfPeople);
 
-  let total = (data.amountBilled + tipTotal) / data.numberOfPeople;
-  display_card.displayOutput(display_card.totalId, total);
+  const total = data.amountBilled + tipTotal;
+  display_card.displayOutput(display_card.TOTAL_OUTPUT_ID, total / data.numberOfPeople);
 }
 
 /*

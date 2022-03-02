@@ -89,7 +89,7 @@ input[type=number] {
   font-weight: 400;
 }
 
-.weight-bold, .bold-32, #display-card output, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
+.weight-bold, .bold-32, #display-card output, #display-card > div, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
 #input-card legend, .bold-14, .bold-12 {
   font-weight: 700;
 }
@@ -124,7 +124,7 @@ input[type=number] {
   line-height: 3.6rem;
 }
 
-.size-32, .bold-32, #display-card output {
+.size-32, .bold-32, #display-card output, #display-card > div {
   font-size: 3.2rem;
   line-height: 4.8rem;
   letter-spacing: -0.02em;
@@ -382,6 +382,12 @@ footer a:hover, footer a:focus {
   flex-direction: row;
   justify-content: left;
   align-items: center;
+}
+@media (min-width: 63.4375em) {
+  #display-card > div {
+    font-size: 4.8rem;
+    line-height: 7.1rem;
+  }
 }
 #display-card input[type=reset] {
   width: 100%;
