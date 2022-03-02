@@ -15,15 +15,23 @@ function resetForm() {
 /*
     Form Change
 */
-function handleFormChange(){
-
+function handleFormChange() {
+  calculateTip();
+  display_card.enableResetButton();
 }
 
 /*
     Calculations
 */
 function calculateTip() {
-  input_card.getData();
+  const data = input_card.getFormData();
+
+  let tipTotal = 0;
+  tipTotal = (data.amountBilled * data.tipPercentage) / data.numberOfPeople;
+  display_card.displayOutput(display_card.tipId, tipTotal);
+
+  let total = (data.amountBilled + tipTotal) / data.numberOfPeople;
+  display_card.displayOutput(display_card.totalId, total);
 }
 
 /*
@@ -31,11 +39,8 @@ function calculateTip() {
 */
 export function watch(formId = "tip-calculator") {
   const form = document.getElementById(formId);
-  
-  form.addEventListener("input", () => {
-    display_card.enableResetButton();
-  });
 
+  form.addEventListener("input", () => handleFormChange());
   form.addEventListener("reset", () => resetForm());
 
   // Input Formatting on Blur

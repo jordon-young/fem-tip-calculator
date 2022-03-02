@@ -1,4 +1,6 @@
-export const displayCardId = 'display-card', tipId = 'tip-amount', totalId = 'total-amount';
+export const displayCardId = "display-card",
+  tipId = "tip-amount",
+  totalId = "total-amount";
 
 export function displayOutput(id, amount = null) {
   const output = document.getElementById(id);
@@ -8,7 +10,7 @@ export function displayOutput(id, amount = null) {
     displayText = "$0.00";
   } else if (isNaN(amount) || amount < 0) {
     displayText = "Error";
-  } else if (amount < 10000) {
+  } else if (amount < 1000) {
     displayText = amount.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
