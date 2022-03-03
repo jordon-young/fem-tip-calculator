@@ -3,24 +3,43 @@ export const DISPLAY_CARD_ID = "display-card",
   TOTAL_OUTPUT_ID = "total-amount",
   FONT_SIZE_PER_CH = 1.6;
 
+export function fitOutputText(id) {
+  const output = document.getElementById(id),
+    displayText = output.value;
+  const calculatedFontSize = ((output.clientWidth / displayText.length) * FONT_SIZE_PER_CH) / 10;
+  const maxFontSize =
+    parseInt(
+      window
+        .getComputedStyle(document.querySelector(`#${DISPLAY_CARD_ID} > div`))
+        .getPropertyValue("font-size"),
+      10
+    ) / 10;
+
+  if (2.4 < calculatedFontSize && calculatedFontSize < maxFontSize) {
+    output.style.fontSize = calculatedFontSize + "rem";
+  } else {
+    output.style.removeProperty("font-size");
+  }
+}
+
 export function displayOutput(id, amount = 0) {
-  if(id == null || id == undefined) return;
-  const output = document.getElementById(id);
+  if (id == null || id == undefined) return;
 
   let max;
-  switch(id) {
+  switch (id) {
     case TIP_OUTPUT_ID:
-      max = 1000999999999;
+      max = 1000000;
       break;
     case TOTAL_OUTPUT_ID:
-      max = 10000099999999999;
+      max = 10000000;
       break;
     default:
-      max = 0;
-      break;
+      return;
   }
 
+  const output = document.getElementById(id);
   let displayText;
+
   if (max == 0 || amount < 0) {
     displayText = "Error";
   } else if (amount < max) {
@@ -30,19 +49,11 @@ export function displayOutput(id, amount = 0) {
     });
   } else {
     displayText = "💸💸💸";
-    output.style.fontSize = "inherit";
-  }
-
-  const calculatedFontSize = output.clientWidth / displayText.length * FONT_SIZE_PER_CH / 10;
-
-  if (calculatedFontSize < 3.2){
-    console.log(calculatedFontSize);
-    output.style.fontSize = calculatedFontSize + "rem";
-  } else {
-    output.style.fontSize = "inherit";
+    output.style.removeProperty("font-size");
   }
 
   output.value = displayText;
+  fitOutputText(id);
 }
 
 /*
@@ -50,13 +61,9 @@ export function displayOutput(id, amount = 0) {
 */
 
 export function enableResetButton() {
-  document
-    .querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`)
-    .removeAttribute("disabled");
+  document.querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`).removeAttribute("disabled");
 }
 
 export function disableResetButton() {
-  document
-    .querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`)
-    .setAttribute("disabled", "true");
+  document.querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`).setAttribute("disabled", "true");
 }

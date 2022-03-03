@@ -42,6 +42,15 @@ export function watch(formId = "tip-calculator") {
   form.addEventListener("input", () => handleFormChange());
   form.addEventListener("reset", () => resetForm());
 
+  // Refit output text when element is resized
+  window.onresize = () => {
+    clearTimeout();
+    setTimeout(() => {
+      display_card.fitOutputText(display_card.TIP_OUTPUT_ID);
+      display_card.fitOutputText(display_card.TOTAL_OUTPUT_ID);
+    }, 150); // Debouncing to prevent unnecessary updates
+  };
+
   // Input Formatting on Blur
   input_card.watch();
 }

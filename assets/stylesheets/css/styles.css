@@ -369,7 +369,7 @@ footer a:hover, footer a:focus {
   text-align: right;
   color: #00e6c7;
   flex-grow: 1;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 @media (min-width: 63.4375em) {
   #display-card output {
