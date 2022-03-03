@@ -4,12 +4,10 @@ import * as input_card from "./input_card.js";
 /*
     Form Reset
 */
-function resetForm() {
+function resetForm(formId) {
+  input_card.removeAllErrorMessages();
   input_card.hideCustomTipField();
   display_card.disableResetButton();
-
-  display_card.displayOutput(display_card.TIP_OUTPUT_ID);
-  display_card.displayOutput(display_card.TOTAL_OUTPUT_ID);
 }
 
 /*
@@ -26,7 +24,13 @@ function handleFormChange() {
 function calculateTip() {
   const data = input_card.getFormData();
 
-  const tipTotal = data.amountBilled * data.tipPercentage;
+  if(data == null) {
+    display_card.displayOutput(display_card.TIP_OUTPUT_ID);
+    display_card.displayOutput(display_card.TOTAL_OUTPUT_ID);
+    return;
+  };
+
+  const tipTotal = data.amountBilled * data.tipPercent;
   display_card.displayOutput(display_card.TIP_OUTPUT_ID, tipTotal / data.numberOfPeople);
 
   const total = data.amountBilled + tipTotal;
@@ -40,7 +44,7 @@ export function watch(formId = "tip-calculator") {
   const form = document.getElementById(formId);
 
   form.addEventListener("input", () => handleFormChange());
-  form.addEventListener("reset", () => resetForm());
+  form.addEventListener("reset", () => resetForm(formId));
 
   // Refit output text when element is resized
   window.onresize = () => {

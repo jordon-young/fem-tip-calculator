@@ -89,7 +89,7 @@ input[type=number] {
   font-weight: 400;
 }
 
-.weight-bold, .bold-32, #display-card output, #display-card > div, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
+.weight-bold, .bold-32, #display-card output, #display-card > div, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:first-child) label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
 #input-card legend, .bold-14, .bold-12 {
   font-weight: 700;
 }
@@ -119,7 +119,7 @@ input[type=number] {
 }
 
 .size-24, #input-card .input-with-icon img,
-#input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset label, header .logo {
+#input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:first-child) label, header .logo {
   font-size: 2.4rem;
   line-height: 3.6rem;
 }
@@ -205,6 +205,16 @@ footer a:hover, footer a:focus {
 #input-card legend {
   color: #5e7a7d;
 }
+#input-card .label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+#input-card .label-wrapper label[role=alert] {
+  color: #b77f70;
+}
 #input-card input[type=number] {
   height: 4.8rem;
   width: 100%;
@@ -231,10 +241,6 @@ footer a:hover, footer a:focus {
   caret-color: #b77f70;
   color: #a8796c;
 }
-#input-card > div > label {
-  display: block;
-  margin-bottom: 0.6rem;
-}
 #input-card .input-with-icon {
   position: relative;
   display: flex;
@@ -260,8 +266,11 @@ footer a:hover, footer a:focus {
   top: -10rem;
   z-index: -1;
 }
+#input-card fieldset .label-wrapper {
+  margin-bottom: 1.6rem;
+}
 #input-card fieldset legend {
-  padding-bottom: 1.6rem;
+  padding: 0;
 }
 #input-card fieldset input[type=radio] {
   z-index: 0;
@@ -271,7 +280,44 @@ footer a:hover, footer a:focus {
   background-color: #00e6c7;
   color: #00494d;
 }
-#input-card fieldset label {
+#input-card fieldset > div:not(:first-child) {
+  display: grid;
+  grid-gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 4.8rem;
+  grid-auto-flow: row;
+}
+@media (min-width: 36em) {
+  #input-card fieldset > div:not(:first-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 45em) {
+  #input-card fieldset > div:not(:first-child) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #input-card fieldset > div:not(:first-child) > :nth-last-child(3),
+#input-card fieldset > div:not(:first-child) > :nth-last-child(2),
+#input-card fieldset > div:not(:first-child) > :last-child {
+    grid-column: span 2;
+  }
+}
+@media (min-width: 54.6875em) {
+  #input-card fieldset > div:not(:first-child) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #input-card fieldset > div:not(:first-child) > :nth-last-child(3),
+#input-card fieldset > div:not(:first-child) > :nth-last-child(2),
+#input-card fieldset > div:not(:first-child) > :last-child {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 72.1875em) {
+  #input-card fieldset > div:not(:first-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#input-card fieldset > div:not(:first-child) label {
   padding: 0.6rem 0;
   border-radius: 0.4rem;
   text-align: center;
@@ -281,64 +327,27 @@ footer a:hover, footer a:focus {
   transition-property: color, background-color, border-color;
   transition-duration: 400ms;
 }
-#input-card fieldset label:hover {
+#input-card fieldset > div:not(:first-child) label:hover {
   background-color: #9fe8df;
   color: #00494d;
 }
-#input-card fieldset label[for=tip-custom] {
+#input-card fieldset > div:not(:first-child) label[for=tip-custom] {
   background-color: #f4fafa;
   color: #5e7a7d;
   transition-property: color, background-color, border-color;
   transition-duration: 400ms;
 }
-#input-card fieldset label[for=tip-custom]:hover {
+#input-card fieldset > div:not(:first-child) label[for=tip-custom]:hover {
   background-color: #9fe8df;
   color: #00494d;
 }
-#input-card fieldset > div {
-  display: grid;
-  grid-gap: 1.6rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 4.8rem;
-  grid-auto-flow: row;
-}
-@media (min-width: 36em) {
-  #input-card fieldset > div {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 45em) {
-  #input-card fieldset > div {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  #input-card fieldset > div > :nth-last-child(3),
-#input-card fieldset > div > :nth-last-child(2),
-#input-card fieldset > div > :last-child {
-    grid-column: span 2;
-  }
-}
-@media (min-width: 54.6875em) {
-  #input-card fieldset > div {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #input-card fieldset > div > :nth-last-child(3),
-#input-card fieldset > div > :nth-last-child(2),
-#input-card fieldset > div > :last-child {
-    grid-column: span 1;
-  }
-}
-@media (min-width: 72.1875em) {
-  #input-card fieldset > div {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-#input-card fieldset > div > div:not(:last-child) {
+#input-card fieldset > div:not(:first-child) > div:not(:last-child) {
   height: 4.8rem;
   display: grid;
   justify-content: stretch;
   align-content: stretch;
 }
-#input-card fieldset > div > div:not(:last-child) > * {
+#input-card fieldset > div:not(:first-child) > div:not(:last-child) > * {
   display: block;
   grid-row: 1/2;
   grid-column: 1/2;

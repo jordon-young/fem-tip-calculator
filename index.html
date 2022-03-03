@@ -1,115 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="./assets/stylesheets/css/styles.css">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./assets/stylesheets/css/styles.css" />
 
-    <!-- Scrip-ts -->
-    <script type="module" src="./assets/scripts/setup.js"></script>
+  <!-- Scrip-ts -->
+  <script type="module" src="./assets/scripts/setup.js"></script>
 
-    <title>Jordon Young | Tip Calculator</title>
-  </head>
+  <title>Jordon Young | Tip Calculator</title>
+</head>
 
-  <body>
+<body>
+  <header>
+    <h1 class="logo">Spli<br aria-hidden="true" />tter</h1>
+  </header>
 
-    <header>
-      <h1 class="logo">Spli<br aria-hidden="true">tter</h1>
-    </header>
-
-    <main>
-      <form id="tip-calculator" autocomplete="off">
-        <div id="input-card">
-          <div>
+  <main>
+    <form id="tip-calculator" autocomplete="off">
+      <div id="input-card">
+        <div>
+          <div class="label-wrapper">
             <label for="amount-billed">Bill</label>
-            <div class="input-with-icon">
-              <img src="./assets/images/icon-dollar.svg" aria-hidden="true" />
-              <input id="amount-billed" type="number" step="0.01" min="0" max="1000000" placeholder="0.00">
-            </div>
+            <label for="amount-billed" role="alert"></label>
           </div>
+          <div class="input-with-icon">
+            <img src="./assets/images/icon-dollar.svg" aria-hidden="true" />
+            <input id="amount-billed" type="number" step="0.01" min="0" max="1000000" placeholder="0.00" />
+          </div>
+        </div>
 
-          <fieldset id="tip-percent">
+        <fieldset id="tip-percent">
+          <div class="label-wrapper">
             <legend>Select Tip %</legend>
+            <label for="custom-tip" role="alert"></label>
+          </div>
+          <div>
             <div>
-              <div>
-                <input id="tip-five" type="radio" name="tip-percent" value=".05">
-                <label for="tip-five">5%</label>
-              </div>
-              <div>
-                <input id="tip-ten" type="radio" name="tip-percent" value=".10">
-                <label for="tip-ten">10%</label>
-              </div>
-              <div>
-                <input id="tip-fifteen" type="radio" name="tip-percent" value=".15">
-                <label for="tip-fifteen">15%</label>
-              </div>
-              <div>
-                <input id="tip-twenty" type="radio" name="tip-percent" value=".20">
-                <label for="tip-twenty">20%</label>
-              </div>
-              <div>
-                <input id="tip-twenty-five" type="radio" name="tip-percent" value=".25">
-                <label for="tip-twenty-five">25%</label>
-              </div>
-              <div class="custom-tip-radio">
-                <input id="tip-custom" type="radio" name="tip-percent" value="custom">
-                <label for="tip-custom">Custom</label>
-              </div>
-              <div class="custom-tip input-with-icon accessibility-safe-hide">
-                <span aria-hidden="true">%</span>
-                <input id="custom-tip" type="number" min="0" max="100" placeholder="0">
-              </div>
+              <input id="tip-five" type="radio" name="tip-percent" value=".05" />
+              <label for="tip-five">5%</label>
             </div>
-          </fieldset>
+            <div>
+              <input id="tip-ten" type="radio" name="tip-percent" value=".10" />
+              <label for="tip-ten">10%</label>
+            </div>
+            <div>
+              <input id="tip-fifteen" type="radio" name="tip-percent" value=".15" />
+              <label for="tip-fifteen">15%</label>
+            </div>
+            <div>
+              <input id="tip-twenty" type="radio" name="tip-percent" value=".20" />
+              <label for="tip-twenty">20%</label>
+            </div>
+            <div>
+              <input id="tip-twenty-five" type="radio" name="tip-percent" value=".25" />
+              <label for="tip-twenty-five">25%</label>
+            </div>
+            <div class="custom-tip-radio">
+              <input id="tip-custom" type="radio" name="tip-percent" value="custom" />
+              <label for="tip-custom">Custom</label>
+            </div>
+            <div class="custom-tip input-with-icon accessibility-safe-hide">
+              <span aria-hidden="true">%</span>
+              <input id="custom-tip" type="number" min="0" max="100" placeholder="0" />
+            </div>
+          </div>
+        </fieldset>
 
-          <div>
+        <div>
+          <div class="label-wrapper">
             <label for="number-of-people">Number of People</label>
-            <div class="input-with-icon">
-              <img src="./assets/images/icon-person.svg" aria-hidden="true" />
-              <input id="number-of-people" type="number" min="1" max="100" placeholder="1">
-            </div>
+            <label for="number-of-people" role="alert"></label>
+          </div>
+          <div class="input-with-icon">
+            <img src="./assets/images/icon-person.svg" aria-hidden="true" />
+            <input id="number-of-people" type="number" min="1" max="100" placeholder="1" />
           </div>
         </div>
+      </div>
 
-        <div id="display-card">
-          <div>
-            <label for="tip-amount">
-              Tip Amount<br />
-              <span>/ person</span>
-            </label>
-            <output id="tip-amount" name="tip-amount">$0.00</output>
-          </div>
-
-          <div>
-            <label for="total-amount">
-              Total<br />
-              <span>/ person</span>
-            </label>
-            <output id="total-amount" name="total-amount">$0.00</output>
-          </div>
-
-          <input type="reset" value="reset" disabled>
+      <div id="display-card">
+        <div>
+          <label for="tip-amount">
+            Tip Amount<br />
+            <span>/ person</span>
+          </label>
+          <output id="tip-amount" name="tip-amount">$0.00</output>
         </div>
-      </form>
-    </main>
 
-    <footer>
-      <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a></p>
-      <p>Coded by <a href="https://jordonyoung.com">Jordon Young</a></p>
-    </footer>
+        <div>
+          <label for="total-amount">
+            Total<br />
+            <span>/ person</span>
+          </label>
+          <output id="total-amount" name="total-amount">$0.00</output>
+        </div>
 
-  </body>
+        <input type="reset" value="reset" disabled />
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
+    </p>
+    <p>Coded by <a href="https://jordonyoung.com">Jordon Young</a></p>
+  </footer>
+</body>
 
 </html>

@@ -20,6 +20,18 @@
     color: theme.$input__label;
   }
 
+  .label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 1.6rem;
+    margin-bottom: 0.6rem;
+
+    label[role=alert] {
+      color: theme.$input__error;
+    }
+  }
+
   input[type="number"] {
     @extend .bold-24;
 
@@ -55,11 +67,6 @@
     }
   }
 
-  > div > label {
-    display: block;
-    margin-bottom: 0.6rem;
-  }
-
   .input-with-icon {
     position: relative;
     display: flex;
@@ -93,8 +100,12 @@
       z-index: -1;
     }
 
+    .label-wrapper {
+      margin-bottom: 1.6rem;
+    }
+
     legend {
-      padding-bottom: 1.6rem;
+      padding: 0;
     }
 
     input[type=radio] {
@@ -106,37 +117,8 @@
         color: theme.$primary-dark;
       }
     }
-
-    label {
-      @extend .bold-24;
-      padding: 0.6rem 0;
-      border-radius: 0.4rem;
-      text-align: center;
-
-      background-color: theme.$primary-dark;
-      color: theme.$card__background;
-
-      z-index: 1;
-
-      @include theme.transition-color;
-      &:hover {
-        background-color: theme.$primary-light;
-        color: theme.$primary-dark;
-      }
-    }
-
-    label[for="tip-custom"] {
-      background-color: theme.$input__background;
-      color: theme.$input__label;
-      @include theme.transition-color;
-
-      &:hover {
-        background-color: theme.$primary-light;
-        color: theme.$primary-dark;
-      }
-    }
-
-    > div {
+    
+    > div:not(:first-child) {
       display: grid;
       grid-gap: 1.6rem;
       grid-template-columns: repeat(2, 1fr);
@@ -167,6 +149,35 @@
 
       @include lg {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      label {
+        @extend .bold-24;
+        padding: 0.6rem 0;
+        border-radius: 0.4rem;
+        text-align: center;
+  
+        background-color: theme.$primary-dark;
+        color: theme.$card__background;
+  
+        z-index: 1;
+  
+        @include theme.transition-color;
+        &:hover {
+          background-color: theme.$primary-light;
+          color: theme.$primary-dark;
+        }
+      }
+  
+      label[for="tip-custom"] {
+        background-color: theme.$input__background;
+        color: theme.$input__label;
+        @include theme.transition-color;
+  
+        &:hover {
+          background-color: theme.$primary-light;
+          color: theme.$primary-dark;
+        }
       }
 
       > div:not(:last-child) {

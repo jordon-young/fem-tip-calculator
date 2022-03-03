@@ -3,6 +3,65 @@ const INPUT_CARD_ID = "input-card",
   CUSTOM_TIP_ID = "custom-tip",
   NUMBER_OF_PEOPLE_ID = "number-of-people";
 
+const VALIDITY_STATES = {
+  [AMOUNT_BILLED_ID]: {
+    badInput: "Numbers Only",
+    rangeOverflow: "Max Value: 1,000,000.00",
+    rangeUnderflow: "Min Value: 0.00",
+    stepMismatch: "Rounding to Nearest Cent",
+  },
+  [CUSTOM_TIP_ID]: {
+    badInput: "Numbers Only",
+    rangeOverflow: "Max Value: 100",
+    rangeUnderflow: "Min Value: 0",
+    stepMismatch: "Integers Only",
+  },
+  [NUMBER_OF_PEOPLE_ID]: {
+    badInput: "Numbers Only",
+    rangeOverflow: "Max Value: 100",
+    rangeUnderflow: "Min Value: 1",
+    stepMismatch: "Integers Only",
+  }
+};
+
+/*
+    Input Validation and Error Messages
+*/
+
+function displayErrorMessage(event){
+  if (event.target.validity.valid) return;
+
+  const alert = document.querySelector(`label[role=alert][for=${event.target.id}]`);
+  const error_message = VALIDITY_STATES[event.target.id];
+  let message = "";
+
+  for (let constraint in error_message){
+    if (event.target.validity[constraint]) {
+      message = error_message[constraint];
+      console.log(message);
+      break;
+    }
+  }
+  
+  alert.innerText = message;
+}
+
+function removeErrorMessage(event){
+  if (event.target.validity.valid == false) return;
+
+  const alert = document.querySelector(`label[role=alert][for=${event.target.id}]`);
+  alert.innerText = "";  
+}
+
+export function removeAllErrorMessages() {
+  const elements = document.querySelectorAll(`#${INPUT_CARD_ID} label[role=alert]`);
+  elements.forEach(element => element.innerText = "");
+}
+
+function updateValidityMessage(event) {
+  event.target.checkValidity() ? removeErrorMessage(event) : displayErrorMessage(event);
+}
+
 /*
     Amount Billed 
 */
@@ -16,15 +75,19 @@ function getAmountBilled() {
   return amountBilled;
 }
 
-function formatAmountBilled(e) {
-  if (e.target.checkValidity() || !isNaN(e.target.value)) {
-    e.target.value = (+e.target.value).toFixed(2);
-  }
-  e.target.dispatchEvent(new Event("input", { bubbles: true }));
+function formatAmountBilled(event) {
+  const value = event.target.value;
+  if (isNaN(value)) return;
+
+  event.target.value = (+value).toFixed(2);
+  event.target.dispatchEvent(new Event("input", { bubbles: true }));
 }
 
 function watchBilledAmount() {
-  document.getElementById(AMOUNT_BILLED_ID).addEventListener("blur", (e) => formatAmountBilled(e));
+  const input = document.getElementById(AMOUNT_BILLED_ID);
+  
+  input.addEventListener("input", updateValidityMessage);
+  input.addEventListener("blur", formatAmountBilled);
 }
 
 /*
@@ -54,32 +117,29 @@ export function hideCustomTipField() {
     .classList.remove("accessibility-safe-hide");
 }
 
-function getTipPercentage() {
-  const checkedRadio = document.querySelector("input[type=radio][name=tip-percent]:checked"),
-    customTipField = document.getElementById(CUSTOM_TIP_ID);
+function getTipPercent() {
+  const checkedRadio = document.querySelector("input[type=radio][name=tip-percent]:checked");
+  if (checkedRadio == null) return 0;
 
-  let tipPercentage = 0;
-
-  if (checkedRadio !== null && checkedRadio.value !== "custom") {
-    console.log(checkedRadio.value);
-    tipPercentage = +checkedRadio.value;
-  } else if (customTipField.checkValidity() && customTipField.value !== "") {
-    tipPercentage = customTipField.value / 100;
+  let tipPercent;
+  if (checkedRadio.value == "custom") {
+    tipPercent = document.getElementById(CUSTOM_TIP_ID).value / 100;
+  } else {
+    tipPercent = +checkedRadio.value;
   }
-  return tipPercentage;
-}
-
-function formatCustomTip(e){
-  if (e.target.checkValidity() == false) e.target.value = undefined;
+  return tipPercent;
 }
 
 function watchCustomTip() {
-  document.getElementById("tip-custom").addEventListener("change", () => showCustomTipField());
+  const input = document.getElementById(CUSTOM_TIP_ID);
+  input.addEventListener("input", updateValidityMessage);
+  
+  // Show Custom Tip Field on Custom Radio Selection
+  document.getElementById("tip-custom").addEventListener("change", showCustomTipField);
 
-  document.getElementById(CUSTOM_TIP_ID).addEventListener("blur", (e) => formatCustomTip(e));
-
+  // Hide Custom Tip Field on Any Other Tip Radio Selection
   document.querySelectorAll(`#${INPUT_CARD_ID} input[type=radio]:not(#tip-custom)`).forEach((el) => {
-    el.addEventListener("change", () => hideCustomTipField());
+    el.addEventListener("change", hideCustomTipField);
   });
 }
 
@@ -90,24 +150,15 @@ function watchCustomTip() {
 function getNumPeople() {
   const input = document.getElementById(NUMBER_OF_PEOPLE_ID);
   let numPeople = 1;
-  if (input.checkValidity() && input.value !== "") {
+  if (input.value) {
     numPeople = +input.value;
   }
   return numPeople;
 }
 
-function formatNumPeople(e) {
-    if (e.target.value == "") {
-    e.target.value = 1;
-  } else if (!isNaN(e.target.value)) {
-    e.target.value = (+e.target.value).toFixed();
-  }
-  e.target.dispatchEvent(new Event("input", { bubbles: true }));
-}
-
 function watchNumPeople() {
   const input = document.getElementById(NUMBER_OF_PEOPLE_ID);
-  input.addEventListener("blur", (e) => formatNumPeople(e));
+  input.addEventListener("input", updateValidityMessage);
 }
 
 /*
@@ -115,11 +166,14 @@ function watchNumPeople() {
 */
 
 export function getFormData() {
+  if (document.getElementById(INPUT_CARD_ID).parentElement.checkValidity() == false) return null;
+
   const data = {
     amountBilled: getAmountBilled(),
-    tipPercentage: getTipPercentage(),
+    tipPercent: getTipPercent(),
     numberOfPeople: getNumPeople(),
   };
+
   return data;
 }
 
