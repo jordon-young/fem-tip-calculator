@@ -9,7 +9,7 @@
   gap: 2.5rem;
 
   grid-template-columns: 100%;
-  grid-template-rows: repeat(2, min-content) 1fr;
+  grid-template-rows: repeat(2, min-content) minmax(max-content, 1fr);
 
   @include md-2 {
     padding: 4rem;
@@ -54,11 +54,10 @@
 
   input[type="reset"] {
     width: 100%;
-    height: min-content;
     align-self: end;
 
     padding: 1.1rem 0 1rem 0;
-    margin-top: 1rem;
+    margin: 1rem 0 0 0;
 
     border: none;
     border-radius: 0.4rem;
