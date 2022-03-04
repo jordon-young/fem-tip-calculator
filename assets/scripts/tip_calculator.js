@@ -2,6 +2,35 @@ import * as display_card from "./display_card.js";
 import * as input_card from "./input_card.js";
 
 /*
+    Calculations
+*/
+function calculateTip(data) {
+  const tipTotal = data.amountBilled * data.tipPercent;
+  const total = data.amountBilled + tipTotal;
+  return [tipTotal, total];
+}
+
+/*
+    Form Change
+*/
+function handleFormChange() {
+  const data = input_card.getFormData();
+
+  if (data == null) {
+    console.warn("Data is invalid!");
+    display_card.displayOutput(display_card.TIP_OUTPUT_ID, null);
+    display_card.displayOutput(display_card.TOTAL_OUTPUT_ID, null);
+    return;
+  } else {
+    console.log(data);
+  }
+
+  const [tipTotal, total] = calculateTip(data);
+  display_card.displayOutput(display_card.TIP_OUTPUT_ID, tipTotal / data.numberOfPeople);
+  display_card.displayOutput(display_card.TOTAL_OUTPUT_ID, total / data.numberOfPeople);
+}
+
+/*
     Form Reset
 */
 function resetForm(formId) {
@@ -12,33 +41,8 @@ function resetForm(formId) {
 
   display_card.resetOutputFontSize(display_card.TIP_OUTPUT_ID);
   display_card.resetOutputFontSize(display_card.TOTAL_OUTPUT_ID);
-}
 
-/*
-    Form Change
-*/
-function handleFormChange() {
-  calculateTip();
-  display_card.enableResetButton();
-}
-
-/*
-    Calculations
-*/
-function calculateTip() {
-  const data = input_card.getFormData();
-
-  if(data == null) {
-    display_card.displayOutput(display_card.TIP_OUTPUT_ID);
-    display_card.displayOutput(display_card.TOTAL_OUTPUT_ID);
-    return;
-  };
-
-  const tipTotal = data.amountBilled * data.tipPercent;
-  display_card.displayOutput(display_card.TIP_OUTPUT_ID, tipTotal / data.numberOfPeople);
-
-  const total = data.amountBilled + tipTotal;
-  display_card.displayOutput(display_card.TOTAL_OUTPUT_ID, total / data.numberOfPeople);
+  document.getElementById(formId).addEventListener("input", display_card.enableResetButton, { once: true });
 }
 
 /*
@@ -47,8 +51,9 @@ function calculateTip() {
 export function watch(formId = "tip-calculator") {
   const form = document.getElementById(formId);
 
-  form.addEventListener("input", () => handleFormChange());
+  form.addEventListener("input", handleFormChange);
   form.addEventListener("reset", () => resetForm(formId));
+  form.addEventListener("input", display_card.enableResetButton, { once: true });
 
   // Refit output text when element is resized
   window.onresize = () => {

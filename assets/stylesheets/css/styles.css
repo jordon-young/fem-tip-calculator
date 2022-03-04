@@ -280,9 +280,6 @@ footer a:focus:hover {
 #input-card fieldset .hidden {
   display: none !important;
 }
-#input-card fieldset .behind :focus-visible {
-  outline-offset: 0.2rem;
-}
 #input-card fieldset .custom-tip {
   z-index: 2;
 }
@@ -339,8 +336,7 @@ footer a:focus:hover {
   #input-card fieldset > div:not(:first-child) {
     grid-template-columns: repeat(4, 1fr);
   }
-  #input-card fieldset > div:not(:first-child) > :nth-last-child(3),
-#input-card fieldset > div:not(:first-child) > :nth-last-child(2),
+  #input-card fieldset > div:not(:first-child) > :nth-last-child(2),
 #input-card fieldset > div:not(:first-child) > :last-child {
     grid-column: span 2;
   }
@@ -349,8 +345,7 @@ footer a:focus:hover {
   #input-card fieldset > div:not(:first-child) {
     grid-template-columns: repeat(2, 1fr);
   }
-  #input-card fieldset > div:not(:first-child) > :nth-last-child(3),
-#input-card fieldset > div:not(:first-child) > :nth-last-child(2),
+  #input-card fieldset > div:not(:first-child) > :nth-last-child(2),
 #input-card fieldset > div:not(:first-child) > :last-child {
     grid-column: span 1;
   }
@@ -459,16 +454,16 @@ footer a:focus:hover {
   color: #00494d;
   background-color: #0d686d;
 }
-#display-card input[type=reset]:disabled:focus {
+#display-card input[type=reset]:disabled:focus-visible {
   outline: none;
 }
 #display-card input[type=reset]:enabled {
   transition-delay: 0ms;
 }
-#display-card input[type=reset]:enabled:hover, #display-card input[type=reset]:enabled:focus:hover {
+#display-card input[type=reset]:enabled:hover, #display-card input[type=reset]:enabled:focus-visible:hover {
   background-color: #9fe8df;
 }
-#display-card input[type=reset]:enabled:focus {
+#display-card input[type=reset]:enabled:focus-visible {
   outline: 0.2rem solid #9fe8df;
   outline-offset: -0.2rem;
   outline-color: #00494d;

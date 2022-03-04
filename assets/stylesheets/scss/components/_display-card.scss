@@ -76,7 +76,7 @@
       color: theme.$button-disabled-text;
       background-color: theme.$button-disabled;
 
-      &:focus {
+      &:focus-visible {
         outline: none;
       }
     }
@@ -84,11 +84,12 @@
     &:enabled {
       transition-delay: 0ms;
 
-      &:hover, &:focus:hover {
+      &:hover,
+      &:focus-visible:hover {
         background-color: theme.$primary-light;
       }
 
-      &:focus {
+      &:focus-visible {
         @include theme.state-focus;
         outline-color: theme.$primary-dark;
         outline-offset: -0.4rem;
