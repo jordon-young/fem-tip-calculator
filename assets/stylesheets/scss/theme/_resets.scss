@@ -94,3 +94,9 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+input[type=reset] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

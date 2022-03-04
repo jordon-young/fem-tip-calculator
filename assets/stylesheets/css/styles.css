@@ -74,6 +74,12 @@ input[type=number] {
   appearance: textfield;
 }
 
+input[type=reset] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 /* 
     Typography 
 */
