@@ -5,9 +5,13 @@ import * as input_card from "./input_card.js";
     Form Reset
 */
 function resetForm(formId) {
+  display_card.disableResetButton();
+
   input_card.removeAllErrorMessages();
   input_card.hideCustomTipField();
-  display_card.disableResetButton();
+
+  display_card.resetOutputFontSize(display_card.TIP_OUTPUT_ID);
+  display_card.resetOutputFontSize(display_card.TOTAL_OUTPUT_ID);
 }
 
 /*

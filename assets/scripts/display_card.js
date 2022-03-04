@@ -3,12 +3,21 @@ export const DISPLAY_CARD_ID = "display-card",
   TOTAL_OUTPUT_ID = "total-amount",
   FONT_SIZE_PER_CH = 1.6;
 
-export function fitOutputText(id) {
+
+export function resetOutputFontSize(id) {
+  const output = document.getElementById(id);
+  if(output == null) {
+    console.warm(`resetOutputFontSize(${id}) not found. Cannot reset.`);
+  } else {
+    output.style.removeProperty("font-size");
+  }
+}
+
+function fitOutputText(id) {
   const output = document.getElementById(id),
-    displayText = output.value;
-  const calculatedFontSize =
-    ((output.clientWidth / displayText.length) * FONT_SIZE_PER_CH) / 10;
-  const maxFontSize =
+    displayText = output.value,
+    calculatedFontSize = ((output.clientWidth / displayText.length) * FONT_SIZE_PER_CH) / 10,
+    maxFontSize =
     parseInt(
       window
         .getComputedStyle(document.querySelector(`#${DISPLAY_CARD_ID} > div`))
@@ -49,7 +58,6 @@ export function displayOutput(id, amount) {
     });
   } else {
     displayText = "💸💸💸";
-    output.style.removeProperty("font-size");
   }
 
   output.value = displayText;
