@@ -61,6 +61,7 @@
 
     border: none;
     border-radius: 0.4rem;
+    outline: none;
 
     @extend .bold-18;
     text-transform: uppercase;
@@ -74,11 +75,24 @@
     &:disabled {
       color: theme.$button-disabled-text;
       background-color: theme.$button-disabled;
+
+      &:focus {
+        outline: none;
+      }
     }
 
-    &:enabled:hover {
-      background-color: theme.$primary-light;
+    &:enabled {
       transition-delay: 0ms;
+
+      &:hover, &:focus:hover {
+        background-color: theme.$primary-light;
+      }
+
+      &:focus {
+        @include theme.state-focus;
+        outline-color: theme.$primary-dark;
+        outline-offset: -0.4rem;
+      }
     }
   }
 }

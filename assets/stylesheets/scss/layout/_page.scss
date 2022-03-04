@@ -65,5 +65,14 @@ footer {
 		&:hover, &:focus {
 			color: theme.$primary-dark;
 		}
+
+		&:focus {
+			outline: none;
+			background-color: theme.$primary;
+
+			&:hover {
+				background-color: theme.$primary-light;
+			}
+		}
   }
 }

@@ -68,13 +68,15 @@
               <input id="tip-twenty-five" type="radio" name="tip-percent" value=".25" />
               <label for="tip-twenty-five">25%</label>
             </div>
-            <div class="custom-tip-radio">
-              <input id="tip-custom" type="radio" name="tip-percent" value="custom" />
-              <label for="tip-custom">Custom</label>
-            </div>
-            <div class="custom-tip input-with-icon accessibility-safe-hide">
-              <span aria-hidden="true">%</span>
-              <input id="custom-tip" type="number" min="0" max="100" placeholder="0" />
+            <div>
+              <div class="custom-tip-radio">
+                <input id="tip-custom" type="radio" name="tip-percent" value="custom" />
+                <label for="tip-custom">Custom</label>
+              </div>
+              <div class="custom-tip input-with-icon hidden">
+                <span>%</span>
+                <input id="custom-tip" type="hidden" min="0" max="100" placeholder="0" />
+              </div>
             </div>
           </div>
         </fieldset>

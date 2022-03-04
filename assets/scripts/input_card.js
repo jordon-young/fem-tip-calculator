@@ -69,9 +69,11 @@ function updateValidityMessage(event) {
 function getAmountBilled() {
   const input = document.getElementById(AMOUNT_BILLED_ID);
   let amountBilled = null;
-  if (input.checkValidity() || !isNaN(input.value)) {
+
+  if (input.checkValidity() == false || !isNaN(input.value)) {
     amountBilled = +input.value;
   }
+
   return amountBilled;
 }
 
@@ -94,29 +96,6 @@ function watchBilledAmount() {
     Custom Tip Field
 */
 
-function showCustomTipField() {
-  // Hide custom-tip-radio div
-  document
-    .querySelector(`#${INPUT_CARD_ID} .custom-tip-radio`)
-    .classList.add("accessibility-safe-hide");
-
-  // Show custom-tip div
-  document.querySelector(`#${INPUT_CARD_ID} .custom-tip`).classList.remove("accessibility-safe-hide");
-
-  // Focus custom-tip input
-  document.getElementById(CUSTOM_TIP_ID).focus();
-}
-
-export function hideCustomTipField() {
-  // Hide custom-tip div
-  document.querySelector(`#${INPUT_CARD_ID} .custom-tip`).classList.add("accessibility-safe-hide");
-
-  // Show custom-tip-radio div
-  document
-    .querySelector(`#${INPUT_CARD_ID} .custom-tip-radio`)
-    .classList.remove("accessibility-safe-hide");
-}
-
 function getTipPercent() {
   const checkedRadio = document.querySelector("input[type=radio][name=tip-percent]:checked");
   if (checkedRadio == null) return 0;
@@ -130,12 +109,28 @@ function getTipPercent() {
   return tipPercent;
 }
 
+function showCustomTipField() {
+  // Display custom-tip div
+  const customTipDiv = document.querySelector(`#${INPUT_CARD_ID} .custom-tip`);
+  customTipDiv.classList.remove("hidden");
+  customTipDiv.children[1].setAttribute("type", "number");
+
+  // Focus custom-tip input
+  document.getElementById(CUSTOM_TIP_ID).focus();
+}
+
+export function hideCustomTipField() {
+  const customTipDiv = document.querySelector(`#${INPUT_CARD_ID} .custom-tip`);
+  customTipDiv.classList.add("hidden");
+  customTipDiv.children[1].setAttribute("type", "hidden");
+}
+
 function watchCustomTip() {
   const input = document.getElementById(CUSTOM_TIP_ID);
   input.addEventListener("input", updateValidityMessage);
   
-  // Show Custom Tip Field on Custom Radio Selection
-  document.getElementById("tip-custom").addEventListener("change", showCustomTipField);
+  const customTipRadio = document.getElementById("tip-custom");
+  customTipRadio.addEventListener("change", showCustomTipField);
 
   // Hide Custom Tip Field on Any Other Tip Radio Selection
   document.querySelectorAll(`#${INPUT_CARD_ID} input[type=radio]:not(#tip-custom)`).forEach((el) => {
@@ -149,11 +144,7 @@ function watchCustomTip() {
 
 function getNumPeople() {
   const input = document.getElementById(NUMBER_OF_PEOPLE_ID);
-  let numPeople = 1;
-  if (input.value) {
-    numPeople = +input.value;
-  }
-  return numPeople;
+  return input.value;
 }
 
 function watchNumPeople() {

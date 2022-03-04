@@ -13,7 +13,7 @@ export function resetOutputFontSize(id) {
   }
 }
 
-function fitOutputText(id) {
+export function fitOutputText(id) {
   const output = document.getElementById(id),
     displayText = output.value,
     calculatedFontSize = ((output.clientWidth / displayText.length) * FONT_SIZE_PER_CH) / 10,
