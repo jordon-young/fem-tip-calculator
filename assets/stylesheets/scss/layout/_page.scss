@@ -1,5 +1,6 @@
 @use "../theme";
 @use "breakpoints" as *;
+@use "../theme/state";
 
 :root {
   font-size: 62.5%;
@@ -13,66 +14,71 @@ body {
   background-color: theme.$page__background;
 
   display: grid;
-		grid-template-columns: 100%;
-		grid-template-rows: 1fr max-content 1fr;
-		justify-items: center;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr max-content 1fr;
+  justify-items: center;
 }
 
 header {
-	min-height: max-content;
-	align-self: end;
+  min-height: max-content;
+  align-self: end;
 
-	.logo {
-		width: 9rem;
-		height: 7.5rem;
-		margin-top: 4rem;
-		margin-bottom: 3.2rem;
-	
-		@extend .bold-24;
-		letter-spacing: 0.42em;
-		text-transform: uppercase;
-		color: theme.$logo;
-	}
+  .logo {
+    width: 9rem;
+    height: 7.5rem;
+    margin-top: 4rem;
+    margin-bottom: 3.2rem;
+
+    @extend .bold-24;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: theme.$logo;
+  }
 }
 
 main {
-	width: 100%;
-	display: flex;
-	justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 footer {
-	min-height: max-content;
+  min-height: max-content;
   margin: 3.2rem 0;
-	
-	> :first-child {
-		padding-bottom: 0.6rem;
-	}
 
-	p {
-		@extend .size-12;
-  	color: theme.$input__label;
-		text-align: center;
-	}
+  > :first-child {
+    padding-bottom: 0.6rem;
+  }
 
-	a {
-	color: theme.$input__label;
+  p {
+    @extend .size-12;
+    color: theme.$input__label;
+    text-align: center;
+  }
 
-		&:visited {
-			color: inherit;
-		}
-	
-		&:hover, &:focus {
-			color: theme.$primary-dark;
-		}
+  a {
+    color: theme.$input__label;
 
-		&:focus {
-			outline: none;
-			background-color: theme.$primary;
+    &:visited {
+      color: inherit;
+    }
 
-			&:hover {
-				background-color: theme.$primary-light;
-			}
-		}
+    @include state.hover {
+      &:hover {
+        color: theme.$primary-dark;
+      }
+    }
+
+    &:focus {
+      color: theme.$primary-dark;
+      outline: none;
+      background-color: theme.$primary;
+
+      @include state.hover {
+        &:hover {
+          background-color: theme.$primary-light;
+        }
+      }
+    }
   }
 }

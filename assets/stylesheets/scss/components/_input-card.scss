@@ -1,5 +1,6 @@
 @use "../theme";
 @use "../layout/breakpoints" as *;
+@use "../theme/state";
 
 #input-card {
   padding: 0 0.8rem;
@@ -27,7 +28,7 @@
     column-gap: 1.6rem;
     margin-bottom: 0.6rem;
 
-    label[role=alert] {
+    label[role="alert"] {
       color: theme.$input__error;
     }
   }
@@ -95,7 +96,7 @@
     .hidden {
       display: none !important;
     }
-    
+
     .custom-tip {
       z-index: 2;
     }
@@ -108,7 +109,7 @@
       padding: 0;
     }
 
-    input[type=radio] {
+    input[type="radio"] {
       /* Removes radio circle; Border around actual size */
       -webkit-appearance: none;
       appearance: none;
@@ -122,13 +123,15 @@
 
       // Show Pseudo-Classes on Label Instead
       &:focus-visible + label {
-        @include theme.state-focus;
+        @include state.focus;
         outline-color: theme.$input__placeholder;
         background-color: theme.$input__background;
         color: theme.$input__label;
 
-        &:hover {
-          background-color: theme.$primary-light;
+        @include state.hover {
+          &:hover {
+            background-color: theme.$primary-light;
+          }
         }
       }
 
@@ -140,14 +143,14 @@
       &:checked:focus-visible + label {
         outline-color: theme.$primary-dark;
 
-        &[for=tip-custom] {
+        &[for="tip-custom"] {
           background-color: theme.$primary;
           color: theme.$primary-dark;
           z-index: 3;
         }
       }
     }
-    
+
     > div:not(:first-child) {
       display: grid;
       grid-gap: 1.6rem;
@@ -184,31 +187,36 @@
         padding: 0.6rem 0;
         border-radius: 0.4rem;
         text-align: center;
-  
+
         background-color: theme.$primary-dark;
         color: theme.$card__background;
-  
+
         z-index: 1;
-  
+
         @include theme.transition-color;
-        &:hover {
-          background-color: theme.$primary-light;
-          color: theme.$primary-dark;
+        @include state.hover {
+          &:hover {
+            background-color: theme.$primary-light;
+            color: theme.$primary-dark;
+          }
         }
       }
-  
+
       label[for="tip-custom"] {
         background-color: theme.$input__background;
         color: theme.$input__label;
         @include theme.transition-color;
-  
-        &:hover {
-          background-color: theme.$primary-light;
-          color: theme.$primary-dark;
+
+        @include state.hover {
+          &:hover {
+            background-color: theme.$primary-light;
+            color: theme.$primary-dark;
+          }
         }
       }
 
-      > div, > :last-child > :first-child {
+      > div,
+      > :last-child > :first-child {
         height: 4.8rem;
 
         display: grid;

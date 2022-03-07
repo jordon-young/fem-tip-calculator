@@ -1,5 +1,11 @@
 @use "color";
 
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
 @mixin focus {
   outline: 0.2rem solid color.$primary-light;
   outline-offset: -0.2rem;

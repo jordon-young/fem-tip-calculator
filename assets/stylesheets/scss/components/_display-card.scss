@@ -1,5 +1,6 @@
 @use "../theme";
 @use "../layout/breakpoints" as *;
+@use "../theme/state";
 
 #display-card {
   padding: 4rem 2.4rem 2.4rem;
@@ -75,22 +76,19 @@
     &:disabled {
       color: theme.$button-disabled-text;
       background-color: theme.$button-disabled;
-
-      &:focus-visible {
-        outline: none;
-      }
     }
 
     &:enabled {
       transition-delay: 0ms;
 
-      &:hover,
-      &:focus-visible:hover {
-        background-color: theme.$primary-light;
+      @include state.hover {
+        &:hover {
+          background-color: theme.$primary-light;
+        }
       }
 
       &:focus-visible {
-        @include theme.state-focus;
+        @include state.focus;
         outline-color: theme.$primary-dark;
         outline-offset: -0.4rem;
       }

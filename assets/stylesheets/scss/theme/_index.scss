@@ -1,5 +1,4 @@
-@forward 'resets';
-@forward 'typography';
-@forward 'color';
-@forward 'states' as state-*;
-@forward 'transitions' as transition-*; 
+@forward "resets";
+@forward "typography";
+@forward "color";
+@forward "transitions" as transition-*;

@@ -194,15 +194,20 @@ footer a {
 footer a:visited {
   color: inherit;
 }
-footer a:hover, footer a:focus {
-  color: #00494d;
+@media (hover: hover) {
+  footer a:hover {
+    color: #00494d;
+  }
 }
 footer a:focus {
+  color: #00494d;
   outline: none;
   background-color: #00e6c7;
 }
-footer a:focus:hover {
-  background-color: #9fe8df;
+@media (hover: hover) {
+  footer a:focus:hover {
+    background-color: #9fe8df;
+  }
 }
 
 #input-card {
@@ -305,8 +310,10 @@ footer a:focus:hover {
   background-color: #f4fafa;
   color: #5e7a7d;
 }
-#input-card fieldset input[type=radio]:focus-visible + label:hover {
-  background-color: #9fe8df;
+@media (hover: hover) {
+  #input-card fieldset input[type=radio]:focus-visible + label:hover {
+    background-color: #9fe8df;
+  }
 }
 #input-card fieldset input[type=radio]:checked + label {
   background-color: #00e6c7;
@@ -365,9 +372,11 @@ footer a:focus:hover {
   transition-property: color, background-color, border-color, outline-color;
   transition-duration: 400ms;
 }
-#input-card fieldset > div:not(:first-child) label:hover {
-  background-color: #9fe8df;
-  color: #00494d;
+@media (hover: hover) {
+  #input-card fieldset > div:not(:first-child) label:hover {
+    background-color: #9fe8df;
+    color: #00494d;
+  }
 }
 #input-card fieldset > div:not(:first-child) label[for=tip-custom] {
   background-color: #f4fafa;
@@ -375,17 +384,21 @@ footer a:focus:hover {
   transition-property: color, background-color, border-color, outline-color;
   transition-duration: 400ms;
 }
-#input-card fieldset > div:not(:first-child) label[for=tip-custom]:hover {
-  background-color: #9fe8df;
-  color: #00494d;
+@media (hover: hover) {
+  #input-card fieldset > div:not(:first-child) label[for=tip-custom]:hover {
+    background-color: #9fe8df;
+    color: #00494d;
+  }
 }
-#input-card fieldset > div:not(:first-child) > div, #input-card fieldset > div:not(:first-child) > :last-child > :first-child {
+#input-card fieldset > div:not(:first-child) > div,
+#input-card fieldset > div:not(:first-child) > :last-child > :first-child {
   height: 4.8rem;
   display: grid;
   justify-content: stretch;
   align-content: stretch;
 }
-#input-card fieldset > div:not(:first-child) > div > *, #input-card fieldset > div:not(:first-child) > :last-child > :first-child > * {
+#input-card fieldset > div:not(:first-child) > div > *,
+#input-card fieldset > div:not(:first-child) > :last-child > :first-child > * {
   grid-row: 1/2;
   grid-column: 1/2;
 }
@@ -454,14 +467,13 @@ footer a:focus:hover {
   color: #00494d;
   background-color: #0d686d;
 }
-#display-card input[type=reset]:disabled:focus-visible {
-  outline: none;
-}
 #display-card input[type=reset]:enabled {
   transition-delay: 0ms;
 }
-#display-card input[type=reset]:enabled:hover, #display-card input[type=reset]:enabled:focus-visible:hover {
-  background-color: #9fe8df;
+@media (hover: hover) {
+  #display-card input[type=reset]:enabled:hover {
+    background-color: #9fe8df;
+  }
 }
 #display-card input[type=reset]:enabled:focus-visible {
   outline: 0.2rem solid #9fe8df;
