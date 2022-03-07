@@ -37,7 +37,15 @@
             </div>
             <div class="input-with-icon">
               <img src="./assets/images/icon-dollar.svg" aria-hidden="true" />
-              <input id="amount-billed" type="number" step="0.01" min="0" max="1000000" placeholder="0.00" />
+              <input
+                id="amount-billed"
+                type="number"
+                inputmode="decimal"
+                step="0.01"
+                min="0"
+                max="1000000"
+                placeholder="0.00"
+              />
             </div>
           </div>
 
@@ -74,7 +82,7 @@
                 </div>
                 <div class="custom-tip input-with-icon hidden">
                   <span>%</span>
-                  <input id="custom-tip" type="hidden" min="0" max="100" placeholder="0" />
+                  <input id="custom-tip" inputmode="decimal" type="hidden" min="0" max="100" placeholder="0" />
                 </div>
               </div>
             </div>
@@ -87,7 +95,7 @@
             </div>
             <div class="input-with-icon">
               <img src="./assets/images/icon-person.svg" aria-hidden="true" />
-              <input id="number-of-people" type="number" min="1" max="100" placeholder="1" />
+              <input id="number-of-people" type="number" inputmode="decimal" min="1" max="100" placeholder="1" />
             </div>
           </div>
         </div>
