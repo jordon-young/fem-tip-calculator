@@ -98,6 +98,7 @@ function showCustomTipField() {
 
   const customTipField = document.getElementById(CUSTOM_TIP_ID);
   customTipField.setAttribute("type", "number");
+  customTipField.dispatchEvent(new Event("input")); // Recheck validity. Display error is necessary.
   customTipField.focus();
 }
 
@@ -107,6 +108,9 @@ export function hideCustomTipField() {
 
   const customTipField = document.getElementById(CUSTOM_TIP_ID);
   customTipField.setAttribute("type", "hidden");
+
+  // Remove Error Message
+  document.querySelector("label[role=alert][for=custom-tip]").innerText = "";
 }
 
 function getTipPercent() {
@@ -176,7 +180,21 @@ export function getFormData() {
 }
 
 /*
-  Input Card Setup
+    Manually Reset Each Input ()
+*/
+export function reset() {
+  const numberInputs = document.querySelectorAll(`#${INPUT_CARD_ID} input:not([type=radio], [type=reset])`);
+  const radioInputs = document.querySelectorAll(`#${INPUT_CARD_ID} input[type=radio]`);
+
+  numberInputs.forEach((input) => (input.value = ""));
+  radioInputs.forEach((input) => input.removeAttribute("checked"));
+
+  removeAllErrorMessages();
+  hideCustomTipField();
+}
+
+/*
+    Input Card Setup
 */
 
 export function watch() {

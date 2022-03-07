@@ -34,13 +34,8 @@ function handleFormChange() {
     Form Reset
 */
 function resetForm(formId) {
-  display_card.disableResetButton();
-
-  input_card.removeAllErrorMessages();
-  input_card.hideCustomTipField();
-
-  display_card.resetOutputFontSize(display_card.TIP_OUTPUT_ID);
-  display_card.resetOutputFontSize(display_card.TOTAL_OUTPUT_ID);
+  input_card.reset();
+  display_card.reset();
 
   document.getElementById(formId).addEventListener("input", display_card.enableResetButton, { once: true });
 }

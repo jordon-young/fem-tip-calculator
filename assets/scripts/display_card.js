@@ -4,37 +4,12 @@ export const DISPLAY_CARD_ID = "display-card",
   FONT_SIZE_PER_CH = 1.6;
 
 /*
-    Setup & Reset
-*/
-export function enableResetButton() {
-  document
-    .querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`)
-    .removeAttribute("disabled");
-}
-
-export function disableResetButton() {
-  document
-    .querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`)
-    .setAttribute("disabled", "true");
-}
-
-export function resetOutputFontSize(id) {
-  const output = document.getElementById(id);
-  if (output == null) {
-    console.warm(`resetOutputFontSize(${id}) not found. Cannot reset.`);
-  } else {
-    output.style.removeProperty("font-size");
-  }
-}
-
-/*
     Responsively Fit Output Font-Size Based on Output Value Length
 */
 export function fitOutputText(id) {
   const output = document.getElementById(id);
 
-  const calculatedFontSize =
-    ((output.clientWidth / output.value.length) * FONT_SIZE_PER_CH) / 10;
+  const calculatedFontSize = ((output.clientWidth / output.value.length) * FONT_SIZE_PER_CH) / 10;
 
   const maxFontSize =
     parseInt(
@@ -87,4 +62,30 @@ export function displayOutput(id, amount) {
 
   output.value = displayText;
   fitOutputText(id);
+}
+
+/*
+    Setup & Reset
+*/
+export function enableResetButton() {
+  document.querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`).removeAttribute("disabled");
+}
+
+function disableResetButton() {
+  document.querySelector(`#${DISPLAY_CARD_ID} input[type=reset]`).setAttribute("disabled", "true");
+}
+
+function resetOutputFontSize(id) {
+  const output = document.getElementById(id);
+  if (output == null) {
+    console.warm(`resetOutputFontSize(${id}) not found. Cannot reset.`);
+  } else {
+    output.style.removeProperty("font-size");
+  }
+}
+
+export function reset() {
+  disableResetButton();
+  resetOutputFontSize(TIP_OUTPUT_ID);
+  resetOutputFontSize(TOTAL_OUTPUT_ID);
 }
