@@ -171,11 +171,6 @@ header .logo {
   text-transform: uppercase;
   color: #3d6666;
 }
-@media (min-width: 72.1875em) {
-  header .logo {
-    margin-bottom: 7.8rem;
-  }
-}
 
 main {
   width: 100%;

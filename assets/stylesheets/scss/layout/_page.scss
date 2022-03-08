@@ -34,10 +34,6 @@ header {
     letter-spacing: 0.42em;
     text-transform: uppercase;
     color: theme.$logo;
-
-    @include lg {
-      margin-bottom: 7.8rem;
-    }
   }
 }
 
