@@ -1,72 +1,237 @@
-# Frontend Mentor - Tip calculator app solution
+# Tip Calculator :money_with_wings:
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) by [Frontend Mentor](https://www.frontendmentor.io/).
 
-### Development Scripts
+![Desktop Design Preview](/assets/design/desktop-preview.jpg)
 
-```bash
-sass -w ./assets/stylesheets/scss:./assets/stylesheets/css
-```
+<br />
 
-## Table of contents
+# Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
+- [The Challenge](#the-challenge)
+  - [Brief](#brief)
+  - [Provided Resources](#provided-resources)
 - [My process](#my-process)
-  - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
+- [The Solution](#the-solution)
+  - [Screenshots: Design vs. Solution](#screenshots-design-vs-solution)
+  - [Technical Summary](#built-with)
+    - HTML5
+    - JavaScript Modules
+    - CSS3 Media Queries
+    - Styling with SCSS / SASS
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Links](#links)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+<br/>
 
-## Overview
+<br/>
 
-### The challenge
+# The Challenge
 
-Users should be able to:
+From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) page on Frontend Mentor's website:
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Calculate the correct tip and total cost of the bill per person
+> ## Brief
+>
+> Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
+>
+> You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+>
+> Users should be able to:
+>
+> - View the optimal layout for the app depending on their device's screen size
+> - See hover states for all interactive elements on the page
+> - Calculate the correct tip and total cost of the bill per person
 
-### Screenshot
+<br />
 
-![](./screenshot.jpg)
+## Provided Resources
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+- Starting File Structure
+- Minimalistic [Style Guide](assets\design\style-guide.md)
+- Images Included in Design
+- [Design Screenshots](assets\design)
+  - Desktop
+    - [Initial State](assets\design\desktop-design-empty.jpg)
+    - [Active States](assets\design\active-states.jpg) (Hover, Active, Error)
+    - [Completed Form](assets\design\desktop-design-completed.jpg)
+  - Mobile
+    - [Completed Form](assets\design\mobile-design.jpg)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+<br />
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+# The Solution
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+## Original Design vs. Solution Screenshots
 
-### Links
+<br />
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+|    Desktop     |                                 Original                                 |                                   Solution                                    |
+| :------------: | :----------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+| Initial State  |   ![Initial Design Screenshot](assets\design\desktop-design-empty.jpg)   | ![Solution Screenshot](assets\solution_screenshots\desktop-initial-state.png) |
+| Active States  |      ![Initial Design Screenshot](assets\design\active-states.jpg)       | ![Solution Screenshot](assets\solution_screenshots\desktop-active-states.png) |
+| Completed Form | ![Initial Design Screenshot](assets\design\desktop-design-completed.jpg) |   ![Solution Screenshot](assets\solution_screenshots\desktop-completed.png)   |
 
-## My process
+|     Mobile     |                           Original                            |                                 Solution                                 |
+| :------------: | :-----------------------------------------------------------: | :----------------------------------------------------------------------: |
+| Completed Form | ![Initial Design Screenshot](assets\design\mobile-design.png) | ![Solution Screenshot](assets\solution_screenshots\mobile-completed.png) |
 
-### Built with
+Refer to [Calculations](#calculations) for explanation on tip amount discrepancy.
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+<br />
+
+## Calculations
+
+Total Amount 142.55
+Tip 15% (21.3825)
+Tip / 5 = 4.2765 [rounding]=> $4.28 / person
+Total + Tip = 163.9325
+Total + Tip / 5 = 32.7865 [rounding]=> $32.79 / person
+
+4.27 _ 5 => 21.35 != 21.3825 <= 4.2765 _ 5
+4.28 \* 5 => 21.4 Also not equal, but overtips ~0.2 instead of under tipping 0.325
+
+# Process
+
+## Recreate Design
+
+<br />
+
+# Technical Summary
+
+## Semantic HTML5
+
+Content is organized using semantic tags whenever possible to aid screenreaders in understanding the document's information heirarchy.
+When strictly presenational, generic tags, such as `<div>` and `<span>`, are used as they convey no inherent meaning to developers or assistive technologies.
+
+I typically like to make use of `<section>`, but since there were no headings for `id="input-card"` and `id="display-card"`, and every input came with a label, it wasn't appropriate. I didn't see any value in nesting headings inside of labels.
+
+### Semantic Tags in Document Stucture
+
+```html
+<!-- Selection from index.html --->
+
+<body>
+  <header>
+    <!-- Logo --->
+  </header>
+
+  <main>
+    <form id="tip-calculator" autocomplete="off">
+      <div id="input-card">
+        <!-- Form --->
+      </div>
+      <div id="display-card">
+        <!-- Output & Reset --->
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <!-- Attribution --->
+  </footer>
+</body>
+```
+
+### Using `<form>` Elements
+
+`<input>` for user input :scream:; `<output>` for displaying calculated tip and total values. Screen readers automatically read when `<output>` value is changed.
+
+```html
+<!-- Selection from index.html;  Some attributes and elements removed. -->
+
+<form id="tip-calculator">
+  <div id="input-card">
+    <!-- Amount Billed -->
+    <input type="number" />
+
+    <!-- Tip Percent -->
+    <fieldset>
+      <!-- Predefined -->
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+
+      <!-- Custom -->
+      <input type="number" />
+    </fieldset>
+
+    <!-- Number of People -->
+    <input type="number" />
+  </div>
+
+  <div id="display-card">
+    <!-- Tip Amount -->
+    <output id="tip-amount"></output>
+
+    <!-- Total Amount -->
+    <output id="total-amount"></output>
+
+    <!-- Form Reset -->
+    <input type="reset" />
+  </div>
+</form>
+```
+
+### Leveraging `<input>` Validity
+
+Using attributes, the HTML validates the form and inputs. CSS styling and JavaScript execution in this project are tied directly to HTML input validation states and events.
+
+```html
+<!-- Selection from index.html; Some attributes removed. -->
+
+<input id="amount-billed" type="number" step="0.01" min="0" max="1000000" />
+
+<input id="number-of-people" type="number" min="1" max="100" />
+```
+
+### `<form>` Reset
+
+Unexpectedly, the `input[type=reset]` button didn't work on iOS Safari/Chrome, so I had to create methods to manually clear `<input>` and reset `<output>` values.
+
+## JavaScript
+
+The [Tip Calculator JavaScript](assets\scripts) is organized into four modules.
+Modules are used in this project primarily for organization, maintenance, and digestability.
+
+### input_card.js
+
+#### display_card.js
+
+#### tip_calculator.js
+
+#### setup.js
+
+```js
+import * as tip_calculator from "./tip_calculator.js";
+
+// Initializes Event Listeners and Handlers
+tip_calculator.watch();
+```
+
+- CSS3
+  - Root font-size: 62.5%;
+  - Element sizing with REM (256px => 25.6rem)
+  - Media Queries
+    - Mobile First (min-width)
+    - Primary Input Hover Detection (hover: hover)
+    - Prefers Reduced Motion overrides transitions
+- SCSS / SASS (CSS3)
+  - Partial files for theme, components, and layout
+  - Mixins with content blocks for breakpoints and managing hover on primarily touch devices
+
+### Notible Features
+
+- Resp
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
-### What I learned
+## What I learned
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
@@ -75,15 +240,17 @@ To see how you can add code snippets, see below:
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```
+
 ```css
 .proud-of-this-css {
   color: papayawhip;
 }
 ```
+
 ```js
 const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+  console.log("🎉");
+};
 ```
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
@@ -111,8 +278,13 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 **Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
-## Acknowledgments
+## Links
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+- [Github Repository (Public)](https://github.com/jordon-young/fem-tip-calculator)
+- [Solution Live Site](https://jordon-young.github.io/fem-tip-calculator/)
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+### Development Scripts
+
+```bash
+sass -w ./assets/stylesheets/scss:./assets/stylesheets/css
+```
