@@ -15,13 +15,14 @@ body {
 
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 1fr max-content 1fr;
+  grid-template-rows: 1fr repeat(3, max-content) 1fr;
+  grid-template-areas: "." "header" "main" "footer" ".";
   justify-items: center;
 }
 
 header {
-  min-height: max-content;
   align-self: end;
+  grid-area: header;
 
   .logo {
     width: 9rem;
@@ -33,6 +34,10 @@ header {
     letter-spacing: 0.42em;
     text-transform: uppercase;
     color: theme.$logo;
+
+    @include lg {
+      margin-bottom: 7.8rem;
+    }
   }
 }
 
@@ -40,11 +45,13 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
+  grid-area: main;
 }
 
 footer {
   min-height: max-content;
   margin: 3.2rem 0;
+  grid-area: footer;
 
   > :first-child {
     padding-bottom: 0.6rem;

@@ -153,13 +153,14 @@ body {
   background-color: #c5e4e7;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 1fr max-content 1fr;
+  grid-template-rows: 1fr repeat(3, max-content) 1fr;
+  grid-template-areas: "." "header" "main" "footer" ".";
   justify-items: center;
 }
 
 header {
-  min-height: max-content;
   align-self: end;
+  grid-area: header;
 }
 header .logo {
   width: 9rem;
@@ -170,16 +171,23 @@ header .logo {
   text-transform: uppercase;
   color: #3d6666;
 }
+@media (min-width: 72.1875em) {
+  header .logo {
+    margin-bottom: 7.8rem;
+  }
+}
 
 main {
   width: 100%;
   display: flex;
   justify-content: center;
+  grid-area: main;
 }
 
 footer {
   min-height: max-content;
   margin: 3.2rem 0;
+  grid-area: footer;
 }
 footer > :first-child {
   padding-bottom: 0.6rem;
