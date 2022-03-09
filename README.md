@@ -50,15 +50,15 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 ## Provided Resources
 
 - Starting File Structure
-- Minimalistic [Style Guide](assets\design\style-guide.md)
+- Minimalistic [Style Guide](./assets/design/style-guide.md)
 - Images Included in Design
-- [Design Screenshots](assets\design)
+- [Design Screenshots](./assets/design/)
   - Desktop
-    - [Initial State](assets\design\desktop-design-empty.jpg)
-    - [Active States](assets\design\active-states.jpg) (Hover, Active, Error)
-    - [Completed Form](assets\design\desktop-design-completed.jpg)
+    - [Initial State](./assets/design/desktop-design-empty.jpg)
+    - [Active States](./assets/design/active-states.jpg) (Hover, Active, Error)
+    - [Completed Form](./assets/design/desktop-design-completed.jpg)
   - Mobile
-    - [Completed Form](assets\design\mobile-design.jpg)
+    - [Completed Form](./assets/design/mobile-design.jpg)
 
 <br />
 
@@ -68,15 +68,15 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 
 <br />
 
-|    Desktop     |                                 Original                                 |                                   Solution                                    |
-| :------------: | :----------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| Initial State  |   ![Initial Design Screenshot](assets\design\desktop-design-empty.jpg)   | ![Solution Screenshot](assets\solution_screenshots\desktop-initial-state.png) |
-| Active States  |      ![Initial Design Screenshot](assets\design\active-states.jpg)       | ![Solution Screenshot](assets\solution_screenshots\desktop-active-states.png) |
-| Completed Form | ![Initial Design Screenshot](assets\design\desktop-design-completed.jpg) |   ![Solution Screenshot](assets\solution_screenshots\desktop-completed.png)   |
+|    Desktop     |                                  Original                                  |                                    Solution                                     |
+| :------------: | :------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
+| Initial State  |   ![Initial Design Screenshot](./assets/design/desktop-design-empty.jpg)   | ![Solution Screenshot](./assets/solution_screenshots/desktop-initial-state.png) |
+| Active States  |      ![Initial Design Screenshot](./assets/design/active-states.jpg)       | ![Solution Screenshot](./assets/solution_screenshots/desktop-active-states.png) |
+| Completed Form | ![Initial Design Screenshot](./assets/design/desktop-design-completed.jpg) |   ![Solution Screenshot](./assets/solution_screenshots/desktop-completed.png)   |
 
-|     Mobile     |                           Original                            |                                 Solution                                 |
-| :------------: | :-----------------------------------------------------------: | :----------------------------------------------------------------------: |
-| Completed Form | ![Initial Design Screenshot](assets\design\mobile-design.png) | ![Solution Screenshot](assets\solution_screenshots\mobile-completed.png) |
+|     Mobile     |                            Original                             |                                  Solution                                  |
+| :------------: | :-------------------------------------------------------------: | :------------------------------------------------------------------------: |
+| Completed Form | ![Initial Design Screenshot](./assets/design/mobile-design.png) | ![Solution Screenshot](./assets/solution_screenshots/mobile-completed.png) |
 
 Refer to [Calculations](#calculations) for explanation on tip amount discrepancy.
 
@@ -119,9 +119,9 @@ I typically like to make use of `<section>`, but since there were no headings fo
   </header>
 
   <main>
-    <form id="tip-calculator" autocomplete="off">
+    <form id="tip-calculator">
       <div id="input-card">
-        <!-- Form --->
+        <!-- Input --->
       </div>
       <div id="display-card">
         <!-- Output & Reset --->
@@ -196,7 +196,7 @@ Unexpectedly, the `input[type=reset]` button didn't work on iOS Safari/Chrome, s
 
 ## JavaScript
 
-The [Tip Calculator JavaScript](assets\scripts) is organized into four modules.
+The [Tip Calculator JavaScript](./assets/scripts/) is organized into four modules.
 Modules are used in this project primarily for organization, maintenance, and digestability.
 
 ### input_card.js
