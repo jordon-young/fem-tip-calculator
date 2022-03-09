@@ -1,29 +1,42 @@
 # Tip Calculator :money_with_wings:
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![Website Status](https://img.shields.io/website-up-down-green-red/https/jordon-young.github.io/fem-tip-calculator/?style=for-the-badge)
+
 This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) by [Frontend Mentor](https://www.frontendmentor.io/).
 
-![Desktop Design Preview](/assets/design/desktop-preview.jpg)
+![Desktop Design Preview](./assets/design/desktop-preview.jpg)
 
-<br />
+# :book: Table of Contents
 
-# Table of contents
+[:clipboard: The Challange](#the-challenge)
 
-- [The Challenge](#the-challenge)
-  - [Brief](#brief)
-  - [Provided Resources](#provided-resources)
-- [My process](#my-process)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [The Solution](#the-solution)
-  - [Screenshots: Design vs. Solution](#screenshots-design-vs-solution)
-  - [Technical Summary](#built-with)
-    - HTML5
-    - JavaScript Modules
-    - CSS3 Media Queries
-    - Styling with SCSS / SASS
-- [Author](#author)
-- [Links](#links)
+- [Official Brief](#offical-brief)
+- [Starting Resources](#starting-resources)
+- [My Requirements](#my-requirements)
+
+[:mag: My Process](#process)
+
+1. Design
+   - Recreating the Design in Figma
+   - Making the Design Responsive
+2. Page Structure
+3. Making it Interactive
+4. Styling with Sass
+   - Mobile First
+   - Theme
+   - Componenents
+   - Breakpoints
+   - Additional Media Queries
+
+[:white_check_mark: The Solution](#the-solution)
+
+[:thought_balloon: Self Reflection]()
+
+[:link: Links]()
 
 <br/>
 
@@ -31,10 +44,14 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 # The Challenge
 
+- [Official Brief](#offical-brief)
+- [Starting Resources](#starting-resources)
+- [My Requirements](#my-requirements)
+
+## Brief
+
 From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) page on Frontend Mentor's website:
 
-> ## Brief
->
 > Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
 >
 > You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
@@ -47,7 +64,9 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 
 <br />
 
-## Provided Resources
+### Starting Resources
+
+Frontend Mentor
 
 - Starting File Structure
 - Minimalistic [Style Guide](./assets/design/style-guide.md)
@@ -59,6 +78,10 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
     - [Completed Form](./assets/design/desktop-design-completed.jpg)
   - Mobile
     - [Completed Form](./assets/design/mobile-design.jpg)
+
+<br />
+
+###
 
 <br />
 
@@ -272,11 +295,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Github Profile - [Jordon Young](https://github.com/jordon-young/)
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/jordon-young)
 
 ## Links
 
