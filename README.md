@@ -1,10 +1,14 @@
 # Tip Calculator :money_with_wings:
 
+[![Website Status](https://img.shields.io/website.svg?label=Live%20Demo&online_color=green&up_message=Online&offline_color=red%26label%3DLive%20Demo&down_message=Offline&style=for-the-badge&url=https%3A%2F%2Fjordon-young.github.io%2Ffem-tip-calculator%2F)](https://jordon-young.github.io/fem-tip-calculator/)
+
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-![Website Status](https://img.shields.io/website-up-down-green-red/https/jordon-young.github.io/fem-tip-calculator/?style=for-the-badge)
+
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Designed in Figma](https://img.shields.io/badge/Designed%20in%20Figma-A259FF?style=for-the-badge&logo=figma&logoColor=white)
 
 This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) by [Frontend Mentor](https://www.frontendmentor.io/).
 
@@ -12,43 +16,41 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 # :book: Table of Contents
 
-[:clipboard: The Challange](#the-challenge)
+> [:clipboard: The Challange](#📋-the-challenge)
+>
+> - [Official Brief](#official-brief)
+> - [Starting Resources](#starting-resources)
+> - [My Requirements](#my-requirements)
 
-- [Official Brief](#offical-brief)
-- [Starting Resources](#starting-resources)
-- [My Requirements](#my-requirements)
+> [:mag: My Process](#🔍-my-process)
+>
+> - Design
+> - Page Structure
+> - Making it Interactive
+> - Styling with Sass
+> - Mobile First
+> - Theme
+> - Componenents
+> - Breakpoints
+> - Additional Media Queries
 
-[:mag: My Process](#process)
+> [:white_check_mark: The Solution](#✅-the-solution)
 
-1. Design
-   - Recreating the Design in Figma
-   - Making the Design Responsive
-2. Page Structure
-3. Making it Interactive
-4. Styling with Sass
-   - Mobile First
-   - Theme
-   - Componenents
-   - Breakpoints
-   - Additional Media Queries
+> [:thought_balloon: Self Reflection](#💭-self-reflection)
 
-[:white_check_mark: The Solution](#the-solution)
-
-[:thought_balloon: Self Reflection]()
-
-[:link: Links]()
+> [:link: Links](#🔗-links)
 
 <br/>
 
 <br/>
 
-# The Challenge
+# :clipboard: The Challange
 
-- [Official Brief](#offical-brief)
+- [Official Brief](#official-brief)
 - [Starting Resources](#starting-resources)
 - [My Requirements](#my-requirements)
 
-## Brief
+## Official Brief
 
 From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) page on Frontend Mentor's website:
 
@@ -62,9 +64,7 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 > - See hover states for all interactive elements on the page
 > - Calculate the correct tip and total cost of the bill per person
 
-<br />
-
-### Starting Resources
+## Starting Resources
 
 Frontend Mentor
 
@@ -79,17 +79,55 @@ Frontend Mentor
   - Mobile
     - [Completed Form](./assets/design/mobile-design.jpg)
 
-<br />
+## My Requirements
 
-###
+### Practice Responsive Design
 
-<br />
+- Make the Design Responsive
 
-# The Solution
+### Languages
+
+- HTML5 Form Validation
+- 'Vanilla' JavaScript
+- Styling with SASS
+
+### Browser Support
+
+Current versions of:
+
+- Chrome
+- Firefox
+- Edge
+- Android: Chrome
+- iOS: Chrome, Safari
+
+# :mag: My Process
+
+## Design
+
+### Recreate the Design in Figma
+
+#### Input Card Components
+
+![Input Card Components](./assets/solution_screenshots/input_card_components.svg)
+
+![Input Cards](./assets/solution_screenshots/input_cards.svg)
+
+#### Display Card Components
+
+![Display Card Components](./assets/solution_screenshots/display_card_components.svg)
+
+#### Tip Calculator Components
+
+If you want to scroll through all the sizes: [Tip Calculator Cards](./assets/solution_screenshots/tip_calculator_component.svg). There is a cool layout with all sizes in the section below.
+
+#### Making it Responsive
+
+![Breakpoints](./assets/solution_screenshots/breakpoints.svg)
+
+# :white_check_mark: The Solution
 
 ## Original Design vs. Solution Screenshots
-
-<br />
 
 |    Desktop     |                                  Original                                  |                                    Solution                                     |
 | :------------: | :------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
@@ -103,7 +141,9 @@ Frontend Mentor
 
 Refer to [Calculations](#calculations) for explanation on tip amount discrepancy.
 
-<br />
+# :thought_balloon: Self Reflection
+
+# :link: Links
 
 ## Calculations
 
@@ -115,10 +155,6 @@ Total + Tip / 5 = 32.7865 [rounding]=> $32.79 / person
 
 4.27 _ 5 => 21.35 != 21.3825 <= 4.2765 _ 5
 4.28 \* 5 => 21.4 Also not equal, but overtips ~0.2 instead of under tipping 0.325
-
-# Process
-
-## Recreate Design
 
 <br />
 
