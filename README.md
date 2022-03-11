@@ -14,43 +14,31 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 ![Desktop Design Preview](./assets/design/desktop-preview.jpg)
 
-# :book: Table of Contents
+## :book: Table of Contents
 
-> [:clipboard: The Challange](#📋-the-challenge)
->
-> - [Official Brief](#official-brief)
-> - [Starting Resources](#starting-resources)
-> - [My Requirements](#my-requirements)
+[:clipboard: The Challenge](#📋-the-challenge)
 
-> [:mag: My Process](#🔍-my-process)
->
-> - Design
-> - Page Structure
-> - Making it Interactive
-> - Styling with Sass
-> - Mobile First
-> - Theme
-> - Componenents
-> - Breakpoints
-> - Additional Media Queries
+[:mag: Design Revisions](#🔍-design-revisions)
 
-> [:white_check_mark: The Solution](#✅-the-solution)
+[:white_check_mark: The Solution](#✅-the-solution)
 
-> [:thought_balloon: Self Reflection](#💭-self-reflection)
+[:link: Links](#🔗-links)
 
-> [:link: Links](#🔗-links)
+[Sass Watch Command](#sass-watch-command)
 
 <br/>
 
 <br/>
 
-# :clipboard: The Challange
+## :clipboard: The Challenge
+
+[:arrow_up: Table of Contents](#📖-table-of-contents)
 
 - [Official Brief](#official-brief)
 - [Starting Resources](#starting-resources)
 - [My Requirements](#my-requirements)
 
-## Official Brief
+### Official Brief
 
 From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) page on Frontend Mentor's website:
 
@@ -64,7 +52,7 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 > - See hover states for all interactive elements on the page
 > - Calculate the correct tip and total cost of the bill per person
 
-## Starting Resources
+### Starting Resources
 
 Frontend Mentor
 
@@ -79,267 +67,89 @@ Frontend Mentor
   - Mobile
     - [Completed Form](./assets/design/mobile-design.jpg)
 
-## My Requirements
-
-### Practice Responsive Design
+### My Goals
 
 - Make the Design Responsive
+- Use SCSS for Styling
+- Treat :hover Correctly on iOS (Chrome & Safari)
 
-### Languages
+## :mag: Design Revisions
 
-- HTML5 Form Validation
-- 'Vanilla' JavaScript
-- Styling with SASS
+[:arrow_up: Table of Contents](#📖-table-of-contents)
 
-### Browser Support
+### Recreating the Design in Figma
 
-Current versions of:
+|                           |                                                                                       |
+| :-----------------------: | :-----------------------------------------------------------------------------------: |
+|       Input Pieces        |   ![Input Card Components](./assets/solution/screenshots/input_card_components.png)   |
+|    Input Card Layouts     |             ![Input Cards](./assets/solution/screenshots/input_cards.png)             |
+| Display Card & Components | ![Display Card Components](./assets/solution/screenshots/display_card_components.png) |
 
-- Chrome
-- Firefox
-- Edge
-- Android: Chrome
-- iOS: Chrome, Safari
+### Making the Design Responsive
 
-# :mag: My Process
+| Min-Width |                         Min-Width / Max-Width                         |
+| :-------: | :-------------------------------------------------------------------: |
+|   375px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_0.png) |
+|   576px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_1.png) |
+|   720px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_2.png) |
+|   875px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_3.png) |
+|  1047px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_4.png) |
+|  1155px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_5.png) |
 
-## Design
+## :white_check_mark: The Solution
 
-### Recreate the Design in Figma
+[:arrow_up: Table of Contents](#📖-table-of-contents)
 
-#### Input Card Components
+![Breakpoints](./assets/solution/screenshots/breakpoints.svg)
 
-![Input Card Components](./assets/solution_screenshots/input_card_components.svg)
+### Interactions & Functionality
 
-![Input Cards](./assets/solution_screenshots/input_cards.svg)
+| Input Card           |                                                                      |
+| :------------------- | :------------------------------------------------------------------- |
+| Input Focus          | ![Input Focus Gif](./assets/solution/gifs/focus_input.gif)           |
+| Input Error          | ![Input Error States](./assets/solution/gifs/input_error_states.gif) |
+| Tip Hover            | ![Tip Button Hover](./assets/solution/gifs/radio_hover.gif)          |
+| Show/Hide Custom Tip | ![Show/Hide Custom Tip](./assets/solution/gifs/custom_tip.gif)       |
 
-#### Display Card Components
+| Display Card      |                                                                         |
+| :---------------- | :---------------------------------------------------------------------- |
+| Live Calculations | ![Live Calculations](./assets/solution/gifs/live_updates.gif)           |
+| Invalid Input     | ![Invalid Input](./assets/solution/gifs/display_error.gif)              |
+| Responsive Text   | ![Responsive Output Text](./assets/solution/gifs/responsive_text.gif)   |
+| Reset Button      | ![Reset Button Enable/Disable](./assets/solution/gifs/reset_button.gif) |
 
-![Display Card Components](./assets/solution_screenshots/display_card_components.svg)
+| Tip Calculator      |                                                                                   |
+| :------------------ | :-------------------------------------------------------------------------------- |
+| Responsive Layout   | ![Responsive Layout](./assets/solution/gifs/responsive.gif)                       |
+| Keyboard Navigation | ![Accessible Keyboard Navigation](./assets/solution/gifs/keyboard_navigation.gif) |
 
-#### Tip Calculator Components
-
-If you want to scroll through all the sizes: [Tip Calculator Cards](./assets/solution_screenshots/tip_calculator_component.svg). There is a cool layout with all sizes in the section below.
-
-#### Making it Responsive
-
-![Breakpoints](./assets/solution_screenshots/breakpoints.svg)
-
-# :white_check_mark: The Solution
-
-## Original Design vs. Solution Screenshots
+### Original Design vs. Solution Screenshots
 
 |    Desktop     |                                  Original                                  |                                    Solution                                     |
 | :------------: | :------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
-| Initial State  |   ![Initial Design Screenshot](./assets/design/desktop-design-empty.jpg)   | ![Solution Screenshot](./assets/solution_screenshots/desktop-initial-state.png) |
-| Active States  |      ![Initial Design Screenshot](./assets/design/active-states.jpg)       | ![Solution Screenshot](./assets/solution_screenshots/desktop-active-states.png) |
-| Completed Form | ![Initial Design Screenshot](./assets/design/desktop-design-completed.jpg) |   ![Solution Screenshot](./assets/solution_screenshots/desktop-completed.png)   |
+| Initial State  |   ![Initial Design Screenshot](./assets/design/desktop-design-empty.jpg)   | ![Solution Screenshot](./assets/solution/screenshots/desktop-initial-state.png) |
+| Active States  |      ![Initial Design Screenshot](./assets/design/active-states.jpg)       | ![Solution Screenshot](./assets/solution/screenshots/desktop-active-states.png) |
+| Completed Form | ![Initial Design Screenshot](./assets/design/desktop-design-completed.jpg) |   ![Solution Screenshot](./assets/solution/screenshots/desktop-completed.png)   |
 
 |     Mobile     |                            Original                             |                                  Solution                                  |
 | :------------: | :-------------------------------------------------------------: | :------------------------------------------------------------------------: |
-| Completed Form | ![Initial Design Screenshot](./assets/design/mobile-design.png) | ![Solution Screenshot](./assets/solution_screenshots/mobile-completed.png) |
+| Completed Form | ![Initial Design Screenshot](./assets/design/mobile-design.png) | ![Solution Screenshot](./assets/solution/screenshots/mobile-completed.png) |
 
-Refer to [Calculations](#calculations) for explanation on tip amount discrepancy.
+## :link: Links
 
-# :thought_balloon: Self Reflection
+[:arrow_up: Table of Contents](#📖-table-of-contents)
 
-# :link: Links
-
-## Calculations
-
-Total Amount 142.55
-Tip 15% (21.3825)
-Tip / 5 = 4.2765 [rounding]=> $4.28 / person
-Total + Tip = 163.9325
-Total + Tip / 5 = 32.7865 [rounding]=> $32.79 / person
-
-4.27 _ 5 => 21.35 != 21.3825 <= 4.2765 _ 5
-4.28 \* 5 => 21.4 Also not equal, but overtips ~0.2 instead of under tipping 0.325
-
-<br />
-
-# Technical Summary
-
-## Semantic HTML5
-
-Content is organized using semantic tags whenever possible to aid screenreaders in understanding the document's information heirarchy.
-When strictly presenational, generic tags, such as `<div>` and `<span>`, are used as they convey no inherent meaning to developers or assistive technologies.
-
-I typically like to make use of `<section>`, but since there were no headings for `id="input-card"` and `id="display-card"`, and every input came with a label, it wasn't appropriate. I didn't see any value in nesting headings inside of labels.
-
-### Semantic Tags in Document Stucture
-
-```html
-<!-- Selection from index.html --->
-
-<body>
-  <header>
-    <!-- Logo --->
-  </header>
-
-  <main>
-    <form id="tip-calculator">
-      <div id="input-card">
-        <!-- Input --->
-      </div>
-      <div id="display-card">
-        <!-- Output & Reset --->
-      </div>
-    </form>
-  </main>
-
-  <footer>
-    <!-- Attribution --->
-  </footer>
-</body>
-```
-
-### Using `<form>` Elements
-
-`<input>` for user input :scream:; `<output>` for displaying calculated tip and total values. Screen readers automatically read when `<output>` value is changed.
-
-```html
-<!-- Selection from index.html;  Some attributes and elements removed. -->
-
-<form id="tip-calculator">
-  <div id="input-card">
-    <!-- Amount Billed -->
-    <input type="number" />
-
-    <!-- Tip Percent -->
-    <fieldset>
-      <!-- Predefined -->
-      <input type="radio" />
-      <input type="radio" />
-      <input type="radio" />
-      <input type="radio" />
-      <input type="radio" />
-      <input type="radio" />
-
-      <!-- Custom -->
-      <input type="number" />
-    </fieldset>
-
-    <!-- Number of People -->
-    <input type="number" />
-  </div>
-
-  <div id="display-card">
-    <!-- Tip Amount -->
-    <output id="tip-amount"></output>
-
-    <!-- Total Amount -->
-    <output id="total-amount"></output>
-
-    <!-- Form Reset -->
-    <input type="reset" />
-  </div>
-</form>
-```
-
-### Leveraging `<input>` Validity
-
-Using attributes, the HTML validates the form and inputs. CSS styling and JavaScript execution in this project are tied directly to HTML input validation states and events.
-
-```html
-<!-- Selection from index.html; Some attributes removed. -->
-
-<input id="amount-billed" type="number" step="0.01" min="0" max="1000000" />
-
-<input id="number-of-people" type="number" min="1" max="100" />
-```
-
-### `<form>` Reset
-
-Unexpectedly, the `input[type=reset]` button didn't work on iOS Safari/Chrome, so I had to create methods to manually clear `<input>` and reset `<output>` values.
-
-## JavaScript
-
-The [Tip Calculator JavaScript](./assets/scripts/) is organized into four modules.
-Modules are used in this project primarily for organization, maintenance, and digestability.
-
-### input_card.js
-
-#### display_card.js
-
-#### tip_calculator.js
-
-#### setup.js
-
-```js
-import * as tip_calculator from "./tip_calculator.js";
-
-// Initializes Event Listeners and Handlers
-tip_calculator.watch();
-```
-
-- CSS3
-  - Root font-size: 62.5%;
-  - Element sizing with REM (256px => 25.6rem)
-  - Media Queries
-    - Mobile First (min-width)
-    - Primary Input Hover Detection (hover: hover)
-    - Prefers Reduced Motion overrides transitions
-- SCSS / SASS (CSS3)
-  - Partial files for theme, components, and layout
-  - Mixins with content blocks for breakpoints and managing hover on primarily touch devices
-
-### Notible Features
-
-- Resp
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
-## What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
+### Author
 
 - Github Profile - [Jordon Young](https://github.com/jordon-young/)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/jordon-young)
+- Frontend Mentor - [@jordon-young](https://www.frontendmentor.io/profile/jordon-young)
 
-## Links
+### Project
 
 - [Github Repository (Public)](https://github.com/jordon-young/fem-tip-calculator)
 - [Solution Live Site](https://jordon-young.github.io/fem-tip-calculator/)
 
-### Development Scripts
+## Sass Watch Command
 
 ```bash
 sass -w ./assets/stylesheets/scss:./assets/stylesheets/css
