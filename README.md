@@ -18,13 +18,13 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 [:clipboard: The Challenge](#📋-the-challenge)
 
-[:mag: Design Revisions](#🔍-design-revisions)
+[:mag: My Process](#🔍-my-process)
 
 [:white_check_mark: The Solution](#✅-the-solution)
 
 [:link: Links](#🔗-links)
 
-[Sass Watch Command](#sass-watch-command)
+[:computer: Sass Watch Command](#💻-sass-watch-command)
 
 <br/>
 
@@ -34,8 +34,8 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 [:arrow_up: Table of Contents](#📖-table-of-contents)
 
-- [Official Brief](#official-brief)
-- [Starting Resources](#starting-resources)
+- [Brief](#brief)
+- [FEM Provided Resources](#starting-resources)
 - [My Requirements](#my-requirements)
 
 ### Official Brief
@@ -52,49 +52,73 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 > - See hover states for all interactive elements on the page
 > - Calculate the correct tip and total cost of the bill per person
 
-### Starting Resources
-
-Frontend Mentor
+### FEM Provided Resources
 
 - Starting File Structure
 - Minimalistic [Style Guide](./assets/design/style-guide.md)
 - Images Included in Design
-- [Design Screenshots](./assets/design/)
-  - Desktop
-    - [Initial State](./assets/design/desktop-design-empty.jpg)
-    - [Active States](./assets/design/active-states.jpg) (Hover, Active, Error)
-    - [Completed Form](./assets/design/desktop-design-completed.jpg)
-  - Mobile
-    - [Completed Form](./assets/design/mobile-design.jpg)
+- [Design Screenshots](./assets/design/) (Desktop, Active States, Mobile)
 
 ### My Goals
 
 - Make the Design Responsive
 - Use SCSS for Styling
-- Treat :hover Correctly on iOS (Chrome & Safari)
+- Overcome iOS Specific Challenges:
+  - Sticky Hover on Touch
+  - Request Specific Keyboard Layout per Input
 
-## :mag: Design Revisions
+## :mag: My Process
 
 [:arrow_up: Table of Contents](#📖-table-of-contents)
 
-### Recreating the Design in Figma
+1. Recreating the Design
+1. Making the Design Responsive
+1. Structuring the Page with Semantic HTML
+1. Styling with Sass (SCSS)
+1. Making it Interactive
 
-|                           |                                                                                       |
-| :-----------------------: | :-----------------------------------------------------------------------------------: |
-|       Input Pieces        |   ![Input Card Components](./assets/solution/screenshots/input_card_components.png)   |
-|    Input Card Layouts     |             ![Input Cards](./assets/solution/screenshots/input_cards.png)             |
-| Display Card & Components | ![Display Card Components](./assets/solution/screenshots/display_card_components.png) |
+### Foreword
+
+### Recreating the Design
+
+The first challenge when using the free version of Frontend Mentor is always to recreate the design as no design files are provided. The best way I've found to get accurate measurements is to recreate the design in Figma or Adobe XD.
+
+From the ground up, I create and compose increasingly complex UI components. I save and reuse styles whenever possible to keep things organized and simple for the developer (me :smile:). Each time I use an instance of a component in a new, more complex component, I check how things resize, adding layout constraints as necessary.
+
+The images below show the Figma components I used to build the design. A doted line surrounds each component and its variants.
+
+_The beauty of using Figma components in this way is that a change in the original component populates everywhere that component is used (including inside other components)._
+
+#### Input Components
+
+![Input Components](./assets/solution/screenshots/input_card_components.png)
+
+#### Input Card with Layouts
+
+![Input Cards](./assets/solution/screenshots/input_cards.png)
+
+#### Display Card & Components
+
+![Display Card Components](./assets/solution/screenshots/display_card_components.png)
 
 ### Making the Design Responsive
 
-| Min-Width |                         Min-Width / Max-Width                         |
-| :-------: | :-------------------------------------------------------------------: |
-|   375px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_0.png) |
-|   576px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_1.png) |
-|   720px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_2.png) |
-|   875px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_3.png) |
-|  1047px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_4.png) |
-|  1155px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_5.png) |
+Having only two fixed layouts is not fully embracing the spirit of responsive web design. I wanted the added challenge of developing several breakpoints, so I flexed my design muscles and specified how the page should resize using the mobile and desktop layouts as endpoints.
+
+|                    Mobile Layout                    |                         Desktop Layout                          |
+| :-------------------------------------------------: | :-------------------------------------------------------------: |
+| ![Mobile Layout](./assets/design/mobile-design.jpg) | ![Desktop Layout](./assets/design/desktop-design-completed.jpg) |
+
+For project demonstration, I decided that fluidly transitioning between breakpoints (matching card widths) was the priority; this lead to the midpoint (720px to 875px) looking uncomfortably wide, but remembering that this is a coding challenge, I kept it simple.
+
+| Breakpoint |                        Min-Width to Max-Width                         |
+| :--------: | :-------------------------------------------------------------------: |
+|   375px    | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_0.png) |
+|   576px    | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_1.png) |
+|   720px    | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_2.png) |
+|   875px    | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_3.png) |
+|   1047px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_4.png) |
+|   1155px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_5.png) |
 
 ## :white_check_mark: The Solution
 
@@ -149,7 +173,7 @@ Frontend Mentor
 - [Github Repository (Public)](https://github.com/jordon-young/fem-tip-calculator)
 - [Solution Live Site](https://jordon-young.github.io/fem-tip-calculator/)
 
-## Sass Watch Command
+## 💻 Sass Watch Command
 
 ```bash
 sass -w ./assets/stylesheets/scss:./assets/stylesheets/css
