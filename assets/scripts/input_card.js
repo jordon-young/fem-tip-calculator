@@ -31,7 +31,7 @@ const VALIDITY_STATES = {
 function displayErrorMessage(event) {
   if (event.target.validity.valid) return;
 
-  const alert = document.querySelector(`label[role=alert][for=${event.target.id}]`);
+  const alert = document.querySelector(`p[role=alert][for=${event.target.id}]`);
   let errorMessage = "";
 
   for (const [state, description] of Object.entries(VALIDITY_STATES[event.target.id])) {
@@ -49,12 +49,12 @@ function displayErrorMessage(event) {
 function removeErrorMessage(event) {
   if (event.target.validity.valid == false) return;
 
-  const alert = document.querySelector(`label[role=alert][for=${event.target.id}]`);
+  const alert = document.querySelector(`p[role=alert][for=${event.target.id}]`);
   alert.innerText = "";
 }
 
 export function removeAllErrorMessages() {
-  const elements = document.querySelectorAll(`#${INPUT_CARD_ID} label[role=alert]`);
+  const elements = document.querySelectorAll(`#${INPUT_CARD_ID} p[role=alert]`);
   elements.forEach((element) => (element.innerText = ""));
 }
 

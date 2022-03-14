@@ -21,16 +21,17 @@
     color: theme.$input__label;
   }
 
+  p[role="alert"] {
+    @extend .bold-16;
+    color: theme.$input__error;
+  }
+
   .label-wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 1.6rem;
     margin-bottom: 0.6rem;
-
-    label[role="alert"] {
-      color: theme.$input__error;
-    }
   }
 
   input[type="number"] {
@@ -200,6 +201,10 @@
             color: theme.$primary-dark;
           }
         }
+
+        &:active {
+          background-color: theme.$primary;
+        }
       }
 
       label[for="tip-custom"] {
@@ -212,6 +217,10 @@
             background-color: theme.$primary-light;
             color: theme.$primary-dark;
           }
+        }
+
+        &:active {
+          background-color: theme.$primary;
         }
       }
 

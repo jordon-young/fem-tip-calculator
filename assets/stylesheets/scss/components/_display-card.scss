@@ -43,6 +43,15 @@
     color: theme.$primary;
     flex-grow: 1;
     overflow-x: hidden;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 1rem;
+    }
   }
 
   > div {
@@ -91,6 +100,10 @@
         @include state.focus;
         outline-color: theme.$primary-dark;
         outline-offset: -0.4rem;
+      }
+
+      &:active {
+        background-color: theme.$primary;
       }
     }
   }

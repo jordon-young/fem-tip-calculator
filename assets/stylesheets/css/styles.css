@@ -100,7 +100,7 @@ input[type=radio] {
 }
 
 .weight-bold, .bold-32, #display-card output, #display-card > div, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:first-child) label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
-#input-card legend, .bold-14, .bold-12 {
+#input-card legend, #input-card p[role=alert], .bold-14, .bold-12 {
   font-weight: 700;
 }
 
@@ -117,7 +117,7 @@ input[type=radio] {
 }
 
 .size-16, .font-defaults, body, .bold-16, #display-card label, #input-card label,
-#input-card legend {
+#input-card legend, #input-card p[role=alert] {
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
@@ -230,15 +230,15 @@ footer a:focus {
 #input-card legend {
   color: #5e7a7d;
 }
+#input-card p[role=alert] {
+  color: #b77f70;
+}
 #input-card .label-wrapper {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   column-gap: 1.6rem;
   margin-bottom: 0.6rem;
-}
-#input-card .label-wrapper label[role=alert] {
-  color: #b77f70;
 }
 #input-card input[type=number] {
   height: 4.8rem;
@@ -381,6 +381,9 @@ footer a:focus {
     color: #00494d;
   }
 }
+#input-card fieldset > div:not(:first-child) label:active {
+  background-color: #00e6c7;
+}
 #input-card fieldset > div:not(:first-child) label[for=tip-custom] {
   background-color: #f4fafa;
   color: #5e7a7d;
@@ -392,6 +395,9 @@ footer a:focus {
     background-color: #9fe8df;
     color: #00494d;
   }
+}
+#input-card fieldset > div:not(:first-child) label[for=tip-custom]:active {
+  background-color: #00e6c7;
 }
 #input-card fieldset > div:not(:first-child) > div,
 #input-card fieldset > div:not(:first-child) > :last-child > :first-child {
@@ -439,6 +445,13 @@ footer a:focus {
     line-height: 7.1rem;
   }
 }
+#display-card output:focus {
+  outline: none;
+}
+#display-card output:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+}
 #display-card > div {
   display: flex;
   flex-direction: row;
@@ -483,6 +496,9 @@ footer a:focus {
   outline-offset: -0.2rem;
   outline-color: #00494d;
   outline-offset: -0.4rem;
+}
+#display-card input[type=reset]:enabled:active {
+  background-color: #00e6c7;
 }
 
 #tip-calculator {
