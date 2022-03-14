@@ -12,7 +12,7 @@
 
 This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) by [Frontend Mentor](https://www.frontendmentor.io/).
 
-![Desktop Design Preview](./assets/design/desktop-preview.jpg)
+![Desktop Design Preview](./assets/design/desktop_preview.jpg)
 
 ## :book: Table of Contents
 
@@ -32,13 +32,13 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 ## :clipboard: The Challenge
 
+- [Brief](#brief)
+- [FEM Provided Resources](#fem-provided-resources)
+- [My Goals](#my-goals)
+
 [:arrow_up: Table of Contents](#📖-table-of-contents)
 
-- [Brief](#brief)
-- [FEM Provided Resources](#starting-resources)
-- [My Requirements](#my-requirements)
-
-### Official Brief
+### Brief
 
 From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) page on Frontend Mentor's website:
 
@@ -69,15 +69,13 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 
 ## :mag: My Process
 
+- [Recreating the Design](#recreating-the-design)
+- [Making the Design Responsive](#making-the-design-responsive)
+- [Structuring the Page with Semantic HTML](#structuring-the-page-with-semantic-html)
+- [Styling with Sass (SCSS)](#styling-with-sass)
+- [Making it Interactive with JavaScript](#making-it-interactive-with-javascript)
+
 [:arrow_up: Table of Contents](#📖-table-of-contents)
-
-1. Recreating the Design
-1. Making the Design Responsive
-1. Structuring the Page with Semantic HTML
-1. Styling with Sass (SCSS)
-1. Making it Interactive
-
-### Foreword
 
 ### Recreating the Design
 
@@ -107,7 +105,7 @@ Having only two fixed layouts is not fully embracing the spirit of responsive we
 
 |                    Mobile Layout                    |                         Desktop Layout                          |
 | :-------------------------------------------------: | :-------------------------------------------------------------: |
-| ![Mobile Layout](./assets/design/mobile-design.jpg) | ![Desktop Layout](./assets/design/desktop-design-completed.jpg) |
+| ![Mobile Layout](./assets/design/mobile_design.jpg) | ![Desktop Layout](./assets/design/desktop_design_completed.jpg) |
 
 For project demonstration, I decided that fluidly transitioning between breakpoints (matching card widths) was the priority; this lead to the midpoint (720px to 875px) looking uncomfortably wide, but remembering that this is a coding challenge, I kept it simple.
 
@@ -120,7 +118,308 @@ For project demonstration, I decided that fluidly transitioning between breakpoi
 |   1047px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_4.png) |
 |   1155px   | ![Breakpoint Preview](./assets/solution/screenshots/breakpoint_5.png) |
 
+### Structuring the Page with Semantic HTML
+
+Once the design was solidified, I began structuring the document. It's especially important to use semantic tags whenever possible to enable the use of assistive technologies. As is often the case, making the document more accessible makes every step in the development process simpler and easier.
+
+#### Abbreviated Excerpt from index.html
+
+Notice how the structure and use of semantic tags logically represent the composition of the design.
+
+```html
+<body>
+  <header>
+    <!-- Logo --->
+  </header>
+
+  <main>
+    <form id="tip-calculator">
+      <div id="input-card">
+        <!-- Input --->
+      </div>
+      <div id="display-card">
+        <!-- Output & Reset --->
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <!-- Attribution --->
+  </footer>
+</body>
+```
+
+It's sometimes necessary to 'wrap' elements for styling purposes. When strictly presentational, generic tags, such as `<div>` and `<span>`, are used as they convey no inherent meaning to developers or assistive technologies.
+
+The `id="input-card"` and `id="display-card"` elements could not be `<section>` tags because they do not have headings. [[Reference]](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section#usage_notes)
+
+#### Abbreviated `<form id="tip-calculator">` Excerpt from index.html
+
+By using `<form>` and `<input>`, I was able to take advantage of the [HTMLFormElement API](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement#methods) for client-side validation. If the `<input>`s are valid, the result will be placed in the `<output>`s, which are automatically read by screen readers on change.
+
+```html
+<form id="tip-calculator">
+  <div id="input-card">
+    <!-- Amount Billed -->
+    <input type="number" />
+
+    <!-- Tip Percent -->
+    <fieldset>
+      <!-- Predefined Tips -->
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+      <input type="radio" />
+
+      <!-- Custom Tip Field -->
+      <input type="number" />
+    </fieldset>
+
+    <!-- Number of People -->
+    <input type="number" />
+  </div>
+
+  <div id="display-card">
+    <!-- Tip Amount -->
+    <output id="tip-amount"></output>
+
+    <!-- Total Amount -->
+    <output id="total-amount"></output>
+
+    <!-- Form Reset -->
+    <input type="reset" />
+  </div>
+</form>
+```
+
+Normally, using a `<form>` in this way would make it possible to easily reset the form state. Unfortunately, the default reset did not work on iOS (Chrome / Safari), so I had to create my own reset method anyways. :sleepy:
+
+#### Completed Page without Styling
+
+![Page with No Styling](./assets/solution/screenshots/no_styles.png)
+
+### Styling with Sass
+
+This was my first time using Sass (SCSS) in a project, and it made abstraction and organization so much easier. My `styles.scss` file is a whopping three lines (complies to around 520 lines of CSS):
+
+```scss
+@use "theme";
+@use "layout";
+@use "components";
+```
+
+#### Theme
+
+Forwarding and extending styles worked extremely well for my theme, and I learned a lot about how to set things up better in the future.
+
+```scss
+@forward "resets";
+@forward "typography";
+@forward "color";
+@forward "transitions" as transition-*;
+```
+
+#### Layout
+
+Positioning and sizing the tip calculator is done at the page level.
+
+```scss
+@forward "breakpoints";
+@forward "page";
+```
+
+Using breakpoint mixins, I was able to write style changes directly next to those being overwritten.
+
+##### Breakpoint Mixin Example from \_tip-calculator.scss
+
+```scss
+// Styles removed for simplicity.
+
+#tip-calculator {
+  /* Default Styles */
+  /* Styles cascade like normal! */
+
+  @include xs {
+    /* Styles for the 'xs' breakpoint */
+  }
+
+  @include md {
+    /* Styles for the 'md' breakpoint */
+  }
+
+  @include ml {
+    /* Styles for the 'ml' breakpoint */
+  }
+}
+```
+
+I'll make the breakpoint names much more specific in the future. The generic names were confusing to work with. Component size media queries would take this to the next level. :pray:
+
+#### Components
+
+Just like the design and document structure, I styled each component separately, drawing shared styles, transitions, and variables from the theme.
+
+```scss
+@forward "input-card";
+@forward "display-card";
+@forward "tip-calculator";
+```
+
+### Making it Interactive with JavaScript
+
+The [Tip Calculator JavaScript](./assets/scripts/) is organized into four modules, primarily for organization, maintenance, and digestibility. The code is written almost entirely in functions. If I were to refactor the code again, I would try to have one default export for each component.
+
+#### setup.js
+
+The only script directly linked in the document.
+
+```js
+import * as tip_calculator from "./tip_calculator.js";
+
+// Initializes Event Listeners and Handlers
+tip_calculator.watch();
+```
+
+#### tip_calculator.js
+
+```js
+import * as display_card from "./display_card.js";
+import * as input_card from "./input_card.js";
+
+function calculateTip(data) {...}
+
+function handleFormChange() {...}
+
+function resetForm(formId) {
+  input_card.reset();
+  display_card.reset();
+  // {...}
+}
+
+export function watch(formId = "tip-calculator") {
+  // Setup Event Listeners
+  /* {...} */
+
+  // Setup Component Event Listeners
+  input_card.watch();
+}
+```
+
+#### input_card.js
+
+```js
+const INPUT_CARD_ID = "input-card",
+  AMOUNT_BILLED_ID = "amount-billed",
+  CUSTOM_TIP_ID = "custom-tip",
+  NUMBER_OF_PEOPLE_ID = "number-of-people";
+
+const VALIDITY_STATES = {...};
+
+/*
+    Input Validation and Error Messages
+*/
+function displayErrorMessage(event) {...}
+
+function removeErrorMessage(event) {...}
+
+export function removeAllErrorMessages() {...}
+
+function updateValidityMessage(event) {
+  event.target.checkValidity() ? removeErrorMessage(event) : displayErrorMessage(event);
+}
+
+/*
+    Amount Billed
+*/
+function formatAmountBilled(event) {...}
+
+function getAmountBilled() {...}
+
+function watchBilledAmount() {...}
+
+/*
+    Custom Tip Field
+*/
+function showCustomTipField() {...}
+
+export function hideCustomTipField() {...}
+
+function getTipPercent() {...}
+
+function watchCustomTip() {...}
+
+/*
+    Number of People
+*/
+function getNumPeople() {...}
+
+function watchNumPeople() {...}
+
+/*
+    Get Form Data for Calculations
+*/
+export function getFormData() {...}
+
+/*
+    Manually Reset Each Input ()
+*/
+export function reset() {...}
+
+/*
+    Input Card Setup
+*/
+export function watch() {
+  watchBilledAmount();
+  watchCustomTip();
+  watchNumPeople();
+}
+```
+
+#### display_card.js
+
+```js
+export const DISPLAY_CARD_ID = "display-card",
+  TIP_OUTPUT_ID = "tip-amount",
+  TOTAL_OUTPUT_ID = "total-amount",
+  FONT_SIZE_PER_CH = 1.6;
+
+// Responsively Fit Output Font-Size Based on Output Value Length
+export function fitOutputText(id) {
+  /* {...} */
+}
+
+export function displayOutput(id, amount) {
+  /* {...} */
+}
+
+/*
+    Setup & Reset
+*/
+export function enableResetButton() {
+  /* {...} */
+}
+
+function disableResetButton() {
+  /* {...} */
+}
+
+function resetOutputFontSize(id) {
+  /* {...} */
+}
+
+export function reset() {
+  disableResetButton();
+  resetOutputFontSize(TIP_OUTPUT_ID);
+  resetOutputFontSize(TOTAL_OUTPUT_ID);
+}
+```
+
 ## :white_check_mark: The Solution
+
+- [Interactions & Functionality](#interactions--functionality)
+- [Original Design vs. Solution Screenshots](#original-design-vs-solution-screenshots)
 
 [:arrow_up: Table of Contents](#📖-table-of-contents)
 
@@ -151,13 +450,13 @@ For project demonstration, I decided that fluidly transitioning between breakpoi
 
 |    Desktop     |                                  Original                                  |                                    Solution                                     |
 | :------------: | :------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
-| Initial State  |   ![Initial Design Screenshot](./assets/design/desktop-design-empty.jpg)   | ![Solution Screenshot](./assets/solution/screenshots/desktop-initial-state.png) |
-| Active States  |      ![Initial Design Screenshot](./assets/design/active-states.jpg)       | ![Solution Screenshot](./assets/solution/screenshots/desktop-active-states.png) |
-| Completed Form | ![Initial Design Screenshot](./assets/design/desktop-design-completed.jpg) |   ![Solution Screenshot](./assets/solution/screenshots/desktop-completed.png)   |
+| Initial State  |   ![Initial Design Screenshot](./assets/design/desktop_design_empty.jpg)   | ![Solution Screenshot](./assets/solution/screenshots/desktop_initial_state.png) |
+| Active States  |      ![Initial Design Screenshot](./assets/design/active_states.jpg)       | ![Solution Screenshot](./assets/solution/screenshots/desktop_active_states.png) |
+| Completed Form | ![Initial Design Screenshot](./assets/design/desktop_design_completed.jpg) |   ![Solution Screenshot](./assets/solution/screenshots/desktop_completed.png)   |
 
 |     Mobile     |                            Original                             |                                  Solution                                  |
 | :------------: | :-------------------------------------------------------------: | :------------------------------------------------------------------------: |
-| Completed Form | ![Initial Design Screenshot](./assets/design/mobile-design.png) | ![Solution Screenshot](./assets/solution/screenshots/mobile-completed.png) |
+| Completed Form | ![Initial Design Screenshot](./assets/design/mobile_design.png) | ![Solution Screenshot](./assets/solution/screenshots/mobile_completed.png) |
 
 ## :link: Links
 

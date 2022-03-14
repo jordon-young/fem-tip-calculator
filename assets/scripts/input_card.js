@@ -92,7 +92,7 @@ function watchBilledAmount() {
     Custom Tip Field
 */
 
-function showCustomTipField(event) {
+function showCustomTipField() {
   const customTipWrapper = document.querySelector(`#${INPUT_CARD_ID} .custom-tip`);
   customTipWrapper.classList.remove("hidden");
 
@@ -102,7 +102,7 @@ function showCustomTipField(event) {
   customTipField.focus();
 }
 
-export function hideCustomTipField(event) {
+export function hideCustomTipField() {
   const customTipWrapper = document.querySelector(`#${INPUT_CARD_ID} .custom-tip`);
   customTipWrapper.classList.add("hidden");
 
