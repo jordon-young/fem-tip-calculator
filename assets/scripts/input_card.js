@@ -92,25 +92,26 @@ function watchBilledAmount() {
     Custom Tip Field
 */
 
-function showCustomTipField() {
+function showCustomTipField(event) {
   const customTipWrapper = document.querySelector(`#${INPUT_CARD_ID} .custom-tip`);
   customTipWrapper.classList.remove("hidden");
 
   const customTipField = document.getElementById(CUSTOM_TIP_ID);
   customTipField.setAttribute("type", "number");
-  customTipField.dispatchEvent(new Event("input")); // Recheck validity. Display error is necessary.
+  customTipField.dispatchEvent(new Event("input", { bubbles: true })); // Dispatching 'input' Event Updates Validity
   customTipField.focus();
 }
 
-export function hideCustomTipField() {
+export function hideCustomTipField(event) {
   const customTipWrapper = document.querySelector(`#${INPUT_CARD_ID} .custom-tip`);
   customTipWrapper.classList.add("hidden");
 
   const customTipField = document.getElementById(CUSTOM_TIP_ID);
   customTipField.setAttribute("type", "hidden");
 
-  // Remove Error Message
-  document.querySelector("label[role=alert][for=custom-tip]").innerText = "";
+  // Dispatching 'input' Event Updates Validity
+  // A hidden input will always be valid.
+  customTipField.dispatchEvent(new Event("input", { bubbles: true }));
 }
 
 function getTipPercent() {

@@ -47,7 +47,6 @@ export function watch(formId = "tip-calculator") {
   const form = document.getElementById(formId);
 
   form.addEventListener("input", handleFormChange);
-  form.addEventListener("change", handleFormChange);
   form.addEventListener("reset", () => resetForm(formId));
   form.addEventListener("input", display_card.enableResetButton, { once: true });
 
