@@ -200,16 +200,6 @@ export function reset() {
 */
 
 export function watch() {
-  // For Frontend Mentor's Solution Checking... It's fine to include this in index.html
-  const numberInputs = document.querySelectorAll(`#${INPUT_CARD_ID} input[type=number]`);
-  numberInputs.forEach((input) => {
-    input.setAttribute("inputmode", "decimal");
-  });
-
-  // Also for Frontend Mentor
-  document.getElementById(CUSTOM_TIP_ID).setAttribute("type", "hidden");
-
-  // Watch Inputs
   watchBilledAmount();
   watchCustomTip();
   watchNumPeople();
