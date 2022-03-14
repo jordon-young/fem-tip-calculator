@@ -99,7 +99,8 @@ input[type=radio] {
   font-weight: 400;
 }
 
-.weight-bold, .bold-32, #display-card output, #display-card > div, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:first-child) label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
+.weight-bold, .bold-32, #display-card output, #display-card > div, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:nth-child(2)) label, header .logo, .bold-18, #display-card input[type=reset], .bold-16, #display-card label, #input-card label,
+#input-card .label,
 #input-card legend, #input-card p[role=alert], .bold-14, .bold-12 {
   font-weight: 700;
 }
@@ -117,6 +118,7 @@ input[type=radio] {
 }
 
 .size-16, .font-defaults, body, .bold-16, #display-card label, #input-card label,
+#input-card .label,
 #input-card legend, #input-card p[role=alert] {
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -129,7 +131,7 @@ input[type=radio] {
 }
 
 .size-24, #input-card .input-with-icon img,
-#input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:first-child) label, header .logo {
+#input-card .input-with-icon span, .bold-24, #input-card input[type=number], #input-card fieldset > div:not(:nth-child(2)) label, header .logo {
   font-size: 2.4rem;
   line-height: 3.6rem;
 }
@@ -227,6 +229,7 @@ footer a:focus {
   margin-bottom: 3.2rem;
 }
 #input-card label,
+#input-card .label,
 #input-card legend {
   color: #5e7a7d;
 }
@@ -296,6 +299,9 @@ footer a:focus {
 }
 #input-card fieldset legend {
   padding: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: -1;
 }
 #input-card fieldset input[type=radio] {
   /* Removes radio circle; Border around actual size */
@@ -330,7 +336,7 @@ footer a:focus {
   color: #00494d;
   z-index: 3;
 }
-#input-card fieldset > div:not(:first-child) {
+#input-card fieldset > div:not(:nth-child(2)) {
   display: grid;
   grid-gap: 1.6rem;
   grid-template-columns: repeat(2, 1fr);
@@ -338,34 +344,34 @@ footer a:focus {
   grid-auto-flow: row;
 }
 @media (min-width: 36em) {
-  #input-card fieldset > div:not(:first-child) {
+  #input-card fieldset > div:not(:nth-child(2)) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 45em) {
-  #input-card fieldset > div:not(:first-child) {
+  #input-card fieldset > div:not(:nth-child(2)) {
     grid-template-columns: repeat(4, 1fr);
   }
-  #input-card fieldset > div:not(:first-child) > :nth-last-child(2),
-#input-card fieldset > div:not(:first-child) > :last-child {
+  #input-card fieldset > div:not(:nth-child(2)) > :nth-last-child(2),
+#input-card fieldset > div:not(:nth-child(2)) > :last-child {
     grid-column: span 2;
   }
 }
 @media (min-width: 54.6875em) {
-  #input-card fieldset > div:not(:first-child) {
+  #input-card fieldset > div:not(:nth-child(2)) {
     grid-template-columns: repeat(2, 1fr);
   }
-  #input-card fieldset > div:not(:first-child) > :nth-last-child(2),
-#input-card fieldset > div:not(:first-child) > :last-child {
+  #input-card fieldset > div:not(:nth-child(2)) > :nth-last-child(2),
+#input-card fieldset > div:not(:nth-child(2)) > :last-child {
     grid-column: span 1;
   }
 }
 @media (min-width: 72.1875em) {
-  #input-card fieldset > div:not(:first-child) {
+  #input-card fieldset > div:not(:nth-child(2)) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-#input-card fieldset > div:not(:first-child) label {
+#input-card fieldset > div:not(:nth-child(2)) label {
   padding: 0.6rem 0;
   border-radius: 0.4rem;
   text-align: center;
@@ -376,38 +382,38 @@ footer a:focus {
   transition-duration: 400ms;
 }
 @media (hover: hover) {
-  #input-card fieldset > div:not(:first-child) label:hover {
+  #input-card fieldset > div:not(:nth-child(2)) label:hover {
     background-color: #9fe8df;
     color: #00494d;
   }
 }
-#input-card fieldset > div:not(:first-child) label:active {
+#input-card fieldset > div:not(:nth-child(2)) label:active {
   background-color: #00e6c7;
 }
-#input-card fieldset > div:not(:first-child) label[for=tip-custom] {
+#input-card fieldset > div:not(:nth-child(2)) label[for=tip-custom] {
   background-color: #f4fafa;
   color: #5e7a7d;
   transition-property: color, background-color, border-color, outline-color;
   transition-duration: 400ms;
 }
 @media (hover: hover) {
-  #input-card fieldset > div:not(:first-child) label[for=tip-custom]:hover {
+  #input-card fieldset > div:not(:nth-child(2)) label[for=tip-custom]:hover {
     background-color: #9fe8df;
     color: #00494d;
   }
 }
-#input-card fieldset > div:not(:first-child) label[for=tip-custom]:active {
+#input-card fieldset > div:not(:nth-child(2)) label[for=tip-custom]:active {
   background-color: #00e6c7;
 }
-#input-card fieldset > div:not(:first-child) > div,
-#input-card fieldset > div:not(:first-child) > :last-child > :first-child {
+#input-card fieldset > div:not(:nth-child(2)) > div,
+#input-card fieldset > div:not(:nth-child(2)) > :last-child > :first-child {
   height: 4.8rem;
   display: grid;
   justify-content: stretch;
   align-content: stretch;
 }
-#input-card fieldset > div:not(:first-child) > div > *,
-#input-card fieldset > div:not(:first-child) > :last-child > :first-child > * {
+#input-card fieldset > div:not(:nth-child(2)) > div > *,
+#input-card fieldset > div:not(:nth-child(2)) > :last-child > :first-child > * {
   grid-row: 1/2;
   grid-column: 1/2;
 }

@@ -16,6 +16,7 @@
   }
 
   label,
+  .label,
   legend {
     @extend .bold-16;
     color: theme.$input__label;
@@ -108,6 +109,9 @@
 
     legend {
       padding: 0;
+      visibility: hidden;
+      position: fixed;
+      z-index: -1;
     }
 
     input[type="radio"] {
@@ -152,7 +156,7 @@
       }
     }
 
-    > div:not(:first-child) {
+    > div:not(:nth-child(2)) {
       display: grid;
       grid-gap: 1.6rem;
       grid-template-columns: repeat(2, 1fr);
