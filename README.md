@@ -16,15 +16,15 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 
 ## :book: Table of Contents
 
-[:clipboard: The Challenge](#📋-the-challenge)
+[:clipboard: The Challenge](#clipboard-the-challenge)
 
-[:mag: My Process](#🔍-my-process)
+[:mag: My Process](#mag-my-process)
 
-[:white_check_mark: The Solution](#✅-the-solution)
+[:white_check_mark: The Solution](#white_check_mark-the-solution)
 
-[:link: Links](#🔗-links)
+[:link: Links](#link-links)
 
-[:computer: Sass Watch Command](#💻-sass-watch-command)
+[:computer: Sass Watch Command](#-sass-watch-command)
 
 <br/>
 
@@ -36,7 +36,7 @@ This is a solution to the [Tip Calculator Challenge](https://www.frontendmentor.
 - [FEM Provided Resources](#fem-provided-resources)
 - [My Goals](#my-goals)
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ### Brief
 
@@ -75,7 +75,7 @@ From the [Tip Calculator Challenge](https://www.frontendmentor.io/challenges/tip
 - [Styling with Sass (SCSS)](#styling-with-sass)
 - [Making it Interactive with JavaScript](#making-it-interactive-with-javascript)
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ### Recreating the Design
 
@@ -421,7 +421,7 @@ export function reset() {
 - [Interactions & Functionality](#interactions--functionality)
 - [Original Design vs. Solution Screenshots](#original-design-vs-solution-screenshots)
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ![Breakpoints](./assets/solution/screenshots/breakpoints.svg)
 
@@ -460,7 +460,7 @@ export function reset() {
 
 ## :link: Links
 
-[:arrow_up: Table of Contents](#📖-table-of-contents)
+[:arrow_up: Table of Contents](#book-table-of-contents)
 
 ### Author
 
